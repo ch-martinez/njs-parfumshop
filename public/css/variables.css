@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    /* colors */
+
+    --indigo-950: #1e1b4b;
+    --indigo-900: #312e81;
+    --indigo-800: #3730a3;
+    --indigo-700: #4338ca;
+    --indigo-600: #4f46e5;
+    --indigo-500: #6366f1;
+    --indigo-400: #818cf8;
+    --indigo-300: #a5b4fc;
+    --indigo-200: #c7d2fe;
+    --indigo-100: #e0e7ff;
+    --indigo-50: #eef2ff;
+
+    --sky-950: #082f49;
+    --sky-900: #0c4a6e;
+    --sky-800: #075985;
+    --sky-700: #0369a1;
+    --sky-600: #0284c7;
+    --sky-500: #0ea5e9;
+    --sky-400: #38bdf8;
+    --sky-300: #7dd3fc;
+    --sky-200: #bae6fd;
+    --sky-100: #e0f2fe;
+    --sky-50: #f0f9ff;
+
+    --primary: var(--sky-500);
+    --dg-primary: linear-gradient(to right, #5433ff, #313c41);
+    --dg-primary: linear-gradient(to right, #24c6dc, #514a9d);
+    --dg-primary: linear-gradient(to right, #00d2ff, #3a7bd5);
+
+    /* Degradados */
+    --dg-ultralightblue: linear-gradient(to bottom, #e0eafc, #c7edff);
+    --dg-lightblue: linear-gradient(137deg, rgba(147,189,255,1) 37%, rgba(193,232,250,1) 100%);
+    --dg-darkblue: linear-gradient(-137deg, #2980b9, #2c3e50);
+    --dg-deepblue: linear-gradient(-137deg, #0f0c29, #302b63);
+    --dg-gray: linear-gradient(-45deg, #bdc3c7, #2c3e50);
+    --dg-lightgray: linear-gradient(-45deg, #8e9eab, #eef2f3);
+    --dg-purple: linear-gradient(45deg, #457fca, #5691c8);
+    --dg-default: linear-gradient(30deg,#f7797d, #fbd786, #c6ffdd);
+
+    --bg-light: #F5F5F7;
+    --bg-dark: #151718;
+
+    --zinc-950: #09090b;
+    --zinc-900: #18181b;
+    --zinc-800: #27272a;
+    --zinc-700: #3f3f46;
+    --zinc-600: #52525b;
+    --zinc-500: #71717a;
+    --zinc-400: #a1a1aa;
+    --zinc-300: #d4d4d8;
+    --zinc-200: #e4e4e7;
+    --zinc-100: #f4f4f5;
+    --zinc-50: #fafafa;
+
+    --slate-950: #020617;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+
+    /* Font */
+    --font-base: "Poppins", sans-serif;;
+
+        /* Font weight */
+        --extrabold: 800;
+        --bold: 700;
+        --semibold: 600;
+        --medium: 500;
+        --regular: 400;
+        --light:300;
+        --thin: 100;
+
+        /* Font sizes */
+        --9xl: 12.8rem;
+        --8xl: 9.6rem;
+        --7xl: 7.8rem;
+        --6xl: 6rem;
+        --5xl: 4.8rem;
+        --4xl: 3.6rem;
+        --3xl: 3rem;
+        --2xl: 2.4rem;
+        --xl: 2rem;
+        --lg: 1.8rem;
+        --md: 1.6rem;
+        --sm: 1.4rem;
+        --xs: 1.2rem;
+
+    /* Breakpoints */
+
+    --bp-xxl: 1400px; /* Extra extra large devices (larger desktops) */
+    --bp-xl: 1200px;  /* Extra large devices (large desktops) */
+    --bp-lg: 992px;   /* Large devices (desktops) */
+    --bp-md: 768px;   /* Medium devices (tablets) */
+    --bp-sm: 576px;   /* Small devices (landscape phones) */
+
+    /* Spacing */
+    --sp-160: 160px;
+    --sp-120: 120px;
+    --sp-80: 80px;
+    --sp-64: 64px;
+    --sp-48: 48px;
+    --sp-40: 40px;
+    --sp-32: 32px;
+    --sp-24: 24px;
+    --sp-20: 20px;
+    --sp-16: 16px;
+    --sp-12: 12px;
+    --sp-8: 8px;
+    --sp-4: 4px;
+    --sp-2: 2px;
+
+    /* Border radius */
+
+    --radius-full: 50px;
+    --radius-xl: 20px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --radius-xs: 4px;
+
+    /* Transitions */
+
+    --transition-03: .3s ease-in-out;
+    --transition-02: .2s ease-in-out;
+    --transition-01: .1s ease-in-out;
+
+    /* Shadow */
+    --shadow-extrabold: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --shadow-bold: 0 25px 50px -12px rgba(0, 0, 0,  0.25);
+    --shadow-semibold: 0 20px 25px -5px rgba(0,0,0, 0.1), 0 8px 10px -6px rgba(0,0,0, 0.1);
+    --shadow-medium: 0 10px 15px -3px rgba(0,0,0, 0.1), 0 4px 6px -4px rgba(0,0,0, 0.1);
+    --shadow-regular: 0 4px 6px -1px rgba(0,0,0, 0.1), 0 2px 4px -2px rgba(0,0,0, 0.1);
+    --shadow-light: 0 1px 3px 0 rgba(0,0,0, 0.1), 0 1px 2px -1px rgba(0,0,0, 0.1);
+    --shadow-thin: 0 1px 2px 0 rgba(0,0,0, 0.05);
+
+    /* Text Shadow */
+    --text-shadow-regular: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    --text-shadow-light: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
