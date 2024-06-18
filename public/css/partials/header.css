@@ -1,0 +1,25 @@
+.header{
+
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__ul{
+    display: flex;
+    
+}
+
+.navbar__li{
+    padding: var(--sp-2) var(--sp-8);
+    
+    transition: all var(--transition-02);
+}
+
+.navbar__li:hover{
+    background: var(--sky-400);
+    color: #FFF;
+}
+
