@@ -1,0 +1,15 @@
+<main class="main">
+    <%- include('./components/hero') %>
+
+    <section class="container container--body">
+        <%- include('./components/featured', {products: data.productsAll}) %>
+        <section class="promoted">
+            <%- include('./components/promoted', {products: data.products}) %>
+            <%- include('./components/promoted', {products: data.products}) %>
+            <%- include('./components/promoted', {products: data.products}) %>
+        </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/scripts/libs/swiper.js"></script>
+</main>
