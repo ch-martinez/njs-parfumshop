@@ -1,0 +1,19 @@
+<section class="featured">
+    <div class="featured__header">
+        <h2 class="featured__title"><%= title %></h2>
+    </div>
+    <div class="featured__body">
+        <div class="swiper swiper--featured">
+            <div class="swiper-wrapper">
+                <% products.forEach(product => { %>
+                    <div class="swiper-slide swiper-slide--featured">
+                        <%- include('../../../../shared/components/product-card.ejs', {product: product}) %>
+                    </div>
+                <%})%>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>

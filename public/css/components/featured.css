@@ -1,0 +1,5 @@
+.featured__header{
+    margin-bottom: var(--sp-24);
+    font-size: var(--2xl);
+    text-transform: uppercase;
+}
