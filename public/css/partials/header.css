@@ -1,25 +1,63 @@
-.header{
-
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--sp-8);
+    background: #FFF;
+    z-index: 1000;
 }
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
 }
 
-.navbar__ul{
+.navbar__ul {
     display: flex;
-    
+
 }
 
-.navbar__li{
+.navbar__li {
     padding: var(--sp-2) var(--sp-8);
-    
+
     transition: all var(--transition-02);
 }
 
-.navbar__li:hover{
+.navbar__li:hover {
     background: var(--sky-400);
     color: #FFF;
 }
 
+.navbar__link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    text-wrap: nowrap;
+}
+
+.subnavbar {
+    position: relative;
+    width: 100%;
+}
+
+.subnavbar:hover .subnavbar__ul {
+    display: block;
+    background: black;
+}
+
+.subnavbar__ul {
+    position: absolute;
+
+    left: 0;
+    display: none;
+    background: black;
+}
+
+.subnavbar__li {
+    padding: var(--sp-2) var(--sp-8);
+}
+
+.subnavbar__li:hover {
+    background: red;
+}
