@@ -1,0 +1,34 @@
+.promoted{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-120);
+}
+
+.promoted__article{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-24);
+    max-height: 460px;
+}
+
+    .promoted__article:nth-child(odd){
+        flex-direction: row-reverse;
+    }
+
+.promoted__banner{
+    --size: 445px;
+    max-width: var(--size);
+    max-height: var(--size);
+}
+
+.promoted__banner img{
+    height: 100%;
+}
+
+.promoted__products-list{
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-24);
+}
