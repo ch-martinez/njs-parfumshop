@@ -1,0 +1,13 @@
+.input-text{
+    padding: var(--sp-4) var(--sp-8);
+}
+
+.input--search{
+    background: inherit;
+    border: none;
+    font-size: inherit;
+}
+
+    .input--search:focus{
+        outline: none;
+    }
