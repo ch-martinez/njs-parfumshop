@@ -5,9 +5,24 @@
 @import url('/css/variables.css');
 @import url('/css/normalize.css');
 @import url('/css/global.css');
+@import url('/css/inputs.css');
 
 /* Componentes */
+@import url('/css/components/hero.css');
+@import url('/css/components/product-card.css');
+@import url('/css/components/promoted.css');
+@import url('/css/components/featured.css');
+
+
 
 
 /* Partials */
 @import url('/css/partials/header.css');
+@import url('/css/partials/footer.css');
+
+
+@import url('/css/libs/swipper.css');
+
+/* Paginas */
+@import url('/css/pages/shop.css');
+@import url('/css/pages/product.css');
