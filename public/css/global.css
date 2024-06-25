@@ -1,4 +1,20 @@
+.main{
+    margin-top: 46px;
+    flex-grow: 1;
+}
+
 .container{
     max-width: var(--bp-xxl);
     margin-inline: auto;
+}
+
+.container--body{
+    max-width: var(--bp-xxl);
+    margin: var(--sp-64) auto;
+}
+
+.container--home{
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-120);
 }
