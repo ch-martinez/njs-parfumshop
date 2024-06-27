@@ -7,7 +7,7 @@
             <div class="swiper-wrapper">
                 <% products.forEach(product => { %>
                     <div class="swiper-slide swiper-slide--featured">
-                        <%- include('../../../../shared/components/product-card.ejs', {product: product}) %>
+                        <%- include('product-card.ejs', {product: product}) %>
                     </div>
                 <%})%>
             </div>
