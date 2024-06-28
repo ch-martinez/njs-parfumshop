@@ -3,6 +3,10 @@
     flex-grow: 1;
 }
 
+.main--product{
+    background: #FFF;
+}
+
 .container{
     max-width: var(--bp-xxl);
     margin-inline: auto;
