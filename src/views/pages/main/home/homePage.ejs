@@ -1,13 +1,14 @@
 <main class="main">
     <%- include('./components/hero') %>
 
-    <section class="container container--body">
-        <%- include('./components/featured', {products: data.productsAll}) %>
+    <section class="container--body container--home">
+        <%- include('../../../shared/components/featured.ejs', {products: data.productsAll, title: 'Ultimos lanzamientos'}) %>
         <section class="promoted">
             <%- include('./components/promoted', {products: data.products}) %>
             <%- include('./components/promoted', {products: data.products}) %>
             <%- include('./components/promoted', {products: data.products}) %>
         </section>
+        <%- include('../../../shared/components/featured.ejs', {products: data.productsAll, title: 'Mas vendidos'}) %>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
