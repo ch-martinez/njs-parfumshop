@@ -1,0 +1,267 @@
+<main class="main">
+    <div class="container--body container--body-checkout">
+        <!--  -->
+        <section class="container--checkout">
+            <!-- Section: Entrega -->
+            <section class="co-section">
+                <div class="co-section__header">
+                    <h2 class="co-section__title">Entrega</h2>
+                </div>
+                <div class="co-section__body">
+                    <h3 class="co-section__subtitle">Recibe</h3>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="name_01" selected>
+                            <div class="shipping__option-descprition">
+                                <h5>Christian Martinez</h5>
+                                <p>DNI: 00.000.000</p>
+                            </div>
+                        </label>
+                    </article>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <div class="shipping__option-descprition --plus">
+                                <h5>+</h5>
+                            </div>
+                            <div class="shipping__option-descprition">
+                                <h5 class=" --plus">Otra persona</h5>
+                            </div>
+                        </label>
+                        <!-- Agregar persona para recibir pedido -->
+                        <article class="co-section__subarticle">
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Nombre y apellido</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Nombre y Apellido">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>DNI</span>
+                                        <input class="input-text" type="number" name="name" placeholder="00.000.000">
+                                    </label>
+                                </div>
+                            </div>
+                        </article>
+                    </article>
+                    <h3 class="co-section__subtitle">Envio a domicilio</h3>
+
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="address01" selected>
+                            <div class="shipping__option-descprition">
+                                <h5>San lorenzo 3042, Rio Cuarto, Cordoba</h5>
+                                <p>Llega en 5 días por correo postal</p>
+                            </div>
+                        </label>
+                    </article>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <div class="shipping__option-descprition --plus">
+                                <h5>+</h5>
+                            </div>
+                            <div class="shipping__option-descprition">
+                                <h5 class=" --plus">Agregar un nuevo domicilio</h5>
+                            </div>
+                        </label>
+                        <!-- Agregar domicilio -->
+                        <article class="co-section__subarticle">
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Dirección</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Ingrese calle...">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Altura</span>
+                                        <input class="input-text" type="number" name="name" placeholder="Ingrese altura...">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Piso (opcional)</span>
+                                        <input class="input-text" type="text" name="number" placeholder="0">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Dpto (opcional)</span>
+                                        <input class="input-text" type="text" name="name" placeholder="A">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Ciudad</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Ingrese ciudad...">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Provincia</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Ingrese provincia...">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Codigo postal</span>
+                                        <input class="input-text" type="number" name="name" placeholder="0000">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Datos adicionales (opcional)</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Descripcion casa, como llegar, etc.">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="co-section__row">
+                                <button class="btn">Agregar domicilio</button>
+                            </div>
+                        </article>
+                    </article>
+
+                    <!-- Sucursales -->
+                    <h3 class="co-section__subtitle">Retiro en sucursal</h3>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="sucursal01">
+                            <div class="shipping__option-descprition">
+                                <h5>Cordoba <span>(Laprida 1721)</span></h5>
+                                <p>Disponible para retirar en 24hs.</p>
+                            </div>
+                        </label>
+                    </article>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="sucursal02">
+                            <div class="shipping__option-descprition">
+                                <h5>Rosario <span>(Av. de la Constitución 528, LOC 10)</span></h5>
+                                <p>Disponible para retirar en 24hs.</p>
+                            </div>
+                        </label>
+                    </article>
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="sucursal02">
+                            <div class="shipping__option-descprition">
+                                <h5>CABA <span>(Colombres 4119)</span></h5>
+                                <p>Disponible para retirar en 24hs.</p>
+                            </div>
+                        </label>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Section: Pago -->
+            <section class="co-section">
+                <div class="co-section__header">
+                    <h2 class="co-section__title">Pago</h2>
+                    <p></p>
+                </div>
+                <div class="co-section__body">
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="payment_cash">
+                            <div class="shipping__option-descprition">
+                                <h5>Efectivo <span>(10% extra de descuento)</span></h5>
+                                <p>Pago en efectivo al momento de retirar</p>
+                            </div>
+                        </label>
+                    </article>
+
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input type="radio" name="payment_transfer">
+                            <div class="shipping__option-descprition">
+                                <h5>Transferencia</h5>
+                                <p>Se enviará a tu correo los pasos para realizar la transferencia</p>
+                            </div>
+                        </label>
+                    </article>
+
+                    <article class="co-section__article co-section__article--shipping">
+                        <label class="shipping__option">
+                            <input class="input-add-card" type="radio" name="payment_card">
+                            <div class="shipping__option-descprition">
+                                <h5>Tarjeta de crédito o débito</h5>
+                            </div>
+                        </label>
+
+                        <!-- Agregar tarjeta -->
+                        <article class="co-section__subarticle">
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Titular Tarjeta</span>
+                                        <input class="input-text" type="text" name="name" placeholder="Nombre y Apellido">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>DNI</span>
+                                        <input class="input-text" type="number" name="name" placeholder="00.000.000">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="co-section__row">
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Numero Tarjeta</span>
+                                        <input class="input-text" type="number" name="name" placeholder="000-000-000-000">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>Vencimiento</span>
+                                        <input class="input-text" type="number" name="name" placeholder="DD/MM">
+                                    </label>
+                                </div>
+                                <div class="co-section__input-container">
+                                    <label class="co-section__input-label">
+                                        <span>CCV</span>
+                                        <input class="input-text" type="number" name="name" placeholder="123">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="co-section__row">
+                                <button class="btn">Añadir tarjeta</button>
+                            </div>
+                        </article>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <section class="cart-summary-container">
+            <div class="cart-summary">
+                <!-- <h2 class="cart__title">Resumen</h2> -->
+                <section class="cart-summary__body">
+                    <div class="cart-summary__item">
+                        <a href="/cart" class="link-to-cart--summary">
+                            <iconify-icon icon="tabler:shopping-cart"></iconify-icon>
+                            ver carrito</a>
+                    </div>
+                    <div class="cart-summary__item">
+                        <p class="cart-summary__resume-value">Subtotal<span>$90000</span></p>
+                        <p class="cart-summary__resume-value"><span>Envio <small>(Sin
+                                    costo)</small></span><span>$0</span></p>
+                        <p class="cart-summary__resume-value">Descuento<span>-$3240</span></p>
+                        <hr>
+                        <p class="cart-summary__resume-value cart-summary__resume-value--total">
+                            TOTAL<span>$538995</span>
+                        </p>
+                    </div>
+                    <div class="cart-summary__item">
+                        <a href="/checkout" class="btn btn--sumary-checkout">Confirmar compra</a>
+                    </div>
+            </div>
+        </section>
+    </div>
+</main>
