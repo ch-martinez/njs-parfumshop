@@ -1,0 +1,97 @@
+<main class="main main--product">
+    <div class="container--body container--body-cart">
+        <section class="cart-list">
+            <div class="cart__header">
+                <h2 class="cart__title">Carrito de compras</h2>
+            </div>
+            <ul class="cart-list__ul">
+                <li>
+                    <article class="cart-list__article cart-list__article-header">
+                        <p class="cart-list__div cart-list__cover">Producto</p>
+                        <p class="cart-list__div"></p>
+                        <p class="cart-list__div cart-list__quantity">Cantidad</p>
+                        <p class="cart-list__div">Precio</p>
+                        <p class="cart-list__div">Total</p>
+                        <p class="cart-list__div"></p>
+                    </article>
+                </li>
+                <% data.products.forEach(product=> { %>
+                    <li>
+                        <article class="cart-list__article">
+                            <div class="cart-list__div cart-list__cover">
+                                <img src="<%= product.product_img %>" alt="product">
+                            </div>
+                            <div class="cart-list__div cart-list__name">
+                                <p>
+                                    <%= product.product_name %>
+                                </p>
+                            </div>
+                            <div class="cart-list__div cart-list__quantity">
+                                <div class="quantity quantity--cart">
+                                    <button class="quantity__btn quantity__btn--minus quantity__btn--cart">-</button>
+                                    <input class="quantity__input quantity__input--cart" type="number" name="quantity"
+                                        min="1" max="<%= product.product_stock %>" value="1">
+                                    <button class="quantity__btn quantity__btn--plus quantity__btn--cart">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-list__div cart-item__price">
+                                <p class="cart-item__price--line">$ <%= product.product_price %>
+                                </p>
+                            </div>
+                            <div class="cart-list__div cart-item__total">
+                                <p class="cart-item__total--line">$ <%= product.product_price %>
+                                </p>
+                            </div>
+                            <div class="cart-list__div cart-item__remove">
+                                <button class="btn--remove">
+                                    <iconify-icon icon="tabler:playstation-x"></iconify-icon>
+                                </button>
+                            </div>
+                        </article>
+                    </li>
+                    <%})%>
+            </ul>
+        </section>
+
+        <section class="cart-summary-container">
+            <div class="cart-summary">
+                <!-- <h2 class="cart__title">Resumen</h2> -->
+                <section class="cart-summary__body">
+                    <div class="cart-summary__item">
+                        <p class="cart-summary__item-title">Descuento</p>
+                        <form class="cart-summary__discount">
+                            <input class="input-text input-discount--summary" type="text" name="discount"
+                                placeholder="Ingrese el código...">
+                            <button class="btn btn-discount--summary">Aplicar</button>
+                        </form>
+                    </div>
+                    <!--                     <div class="cart-summary__item">
+                        <p class="cart-summary__item-title">Metodo de envio</p>
+                        <label class="label--summary">
+                            <input class="input--radio" type="radio" name="shipping" value="true" checked>
+                            Retiro en sucursal
+                        </label>
+                        <label class="label--summary">
+                            <input class="input--radio" type="radio" name="shipping" value="true">
+                            Envio a domicilio
+                        </label>
+                    </div> -->
+
+                    <div class="cart-summary__item">
+                        <p class="cart-summary__resume-value">Subtotal<span>$90000</span></p>
+                        <p class="cart-summary__resume-value"><span>Envio <small>(Sin
+                                    costo)</small></span><span>$0</span></p>
+                        <p class="cart-summary__resume-value">Descuento<span>-$3240</span></p>
+                        <hr>
+                        <p class="cart-summary__resume-value cart-summary__resume-value--total">
+                            TOTAL<span>$538995</span>
+                        </p>
+                    </div>
+                    <div class="cart-summary__item">
+                        <a href="/checkout" class="btn btn--sumary-checkout">Finalizar pedido</a>
+                    </div>
+            </div>
+        </section>
+        </section>
+    </div>
+</main>
