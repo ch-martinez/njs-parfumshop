@@ -12,7 +12,7 @@
 @import url('/css/components/product-card.css');
 @import url('/css/components/promoted.css');
 @import url('/css/components/featured.css');
-
+@import url('/css/components/wrapper.css');
 
 
 
@@ -26,3 +26,7 @@
 /* Paginas */
 @import url('/css/pages/shop.css');
 @import url('/css/pages/product.css');
+@import url('/css/pages/cart.css');
+@import url('/css/pages/checkout.css');
+@import url('/css/pages/auth.css');
+@import url('/css/pages/user.css');
