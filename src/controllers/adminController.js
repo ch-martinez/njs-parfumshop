@@ -1,5 +1,6 @@
 const productsModel = require('../models/productsModel')
 const brandsModel = require('../models/brandsModels')
+const paymentsModel = require('../models/paymentsModel')
 
 const mainView = (req, res) => {
     let data = {
@@ -53,11 +54,24 @@ const brandsView = async (req, res) => {
     res.render('pages/admin/brands/brandsPage', { layout: 'layouts/adminPanelLayout', data });   
 };
 
+/* payments */
+const paymentsView = async (req, res) => {
+    let data = {
+        title: 'Panel administración',
+        pmList: await paymentsModel.getAllPaymentsFromDB()
+    };
+    res.render('pages/admin/payments/paymentsPage', { layout: 'layouts/adminPanelLayout', data });   
+};
+
+
 module.exports = {
     mainView,
     customersView,
     productsView,
     productView,
     productNewView,
-    brandsView
+    brandsView,
+
+
+    paymentsView
 };

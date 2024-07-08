@@ -1,10 +1,15 @@
-.main{
-    margin-top: 44px;
-    flex-grow: 1;
-}
-
 .main--product{
     background: #FFF;
+}
+
+.main--panel{
+    background: #FFF;
+    margin-top: 0;
+    display: flex;
+}
+
+.container-panel{
+    width: 100%;
 }
 
 .container{
@@ -13,12 +18,40 @@
 }
 
 .container--body{
-    max-width: var(--bp-xxl);
-    margin: var(--sp-64) auto;
+    margin-block: var(--sp-24);
 }
 
 .container--home{
     display: flex;
     flex-direction: column;
     gap: var(--sp-120);
+}
+
+/* Badge */
+.badge{
+    padding: var(--sp-4) var(--sp-8);
+    border-radius: var(--radius-full);
+    font-size: var(--xs);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+
+.badge--green{
+    background: rgb(209, 250, 229);
+    color: rgb(5, 150, 105);
+}
+
+.badge--red{
+    background: rgb(254, 226, 226);
+    color: rgb(239, 68, 68);
+}
+
+.badge--yellow{
+    background: rgb(254, 249, 195);
+    color: rgb(202, 138, 4);
+}
+
+.badge--blue{
+    background: rgb(219, 234, 254);
+    color: rgb(59, 130, 246);
 }

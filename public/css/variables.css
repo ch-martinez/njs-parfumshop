@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 :root{
     /* colors */
+
+    --primary-950: #431407;
+    --primary-900: #7c2d12;
+    --primary-800: #9a3412;
+    --primary-700: #c2410c;
+    --primary-600: #ea580c;
+    --primary-500: #f97316;
+    --primary-400: #fb923c;
+    --primary-300: #fdba74;
+    --primary-200: #fed7aa;
+    --primary-100: #ffedd5;
+    --primary-50: #fff7ed;
 
     --indigo-950: #1e1b4b;
     --indigo-900: #312e81;
@@ -70,7 +83,8 @@
     --slate-50: #f8fafc;
 
     /* Font */
-    --font-base: "Poppins", sans-serif;;
+    /* --font-base: "Poppins", sans-serif; */
+    --font-base: "Quicksand", sans-serif;
 
         /* Font weight */
         --extrabold: 800;

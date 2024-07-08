@@ -18,4 +18,7 @@ router.get('/brands', adminController.brandsView)
 //router.get('/brand', adminController.brandView)
 //router.get('/brand/new', adminController.brandNewView)
 
+/* Payments */
+router.get('/payments', adminController.paymentsView)
+
 module.exports = router
