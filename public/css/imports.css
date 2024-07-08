@@ -19,7 +19,7 @@
 /* Partials */
 @import url('/css/partials/header.css');
 @import url('/css/partials/footer.css');
-
+@import url('/css/partials/panel_aside.css'); 
 
 @import url('/css/libs/swipper.css');
 
