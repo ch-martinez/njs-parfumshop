@@ -29,6 +29,7 @@ const cartRouter = require("./src/routes/cartRouter.js")
 const checkoutRouter = require("./src/routes/checkoutRouter.js")
 const authRouter = require("./src/routes/authRouter.js")
 const userRouter = require("./src/routes/userRouter.js")
+const adminRouter = require("./src/routes/adminRouter.js")
 
 //Rutas
 app.use('/', mainRouter);
@@ -37,6 +38,7 @@ app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
+app.use('/admin', adminRouter);
 
 app.use('', (req, res) => { res.render('pages/main/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
 
