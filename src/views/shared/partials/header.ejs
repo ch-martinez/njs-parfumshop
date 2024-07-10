@@ -1,8 +1,7 @@
 <header class="header">
     <nav class="navbar container">
         <div class="navbar-logo">
-            <a class="navbar__link" href="/">
-
+            <a class="navbar-logo--link" href="/">
                 <iconify-icon class="navbar-logo__icon" icon="tabler:chart-bubble"></iconify-icon>
                 <span class="navbar-logo__text">ParfumShop</span>
             </a>
@@ -25,8 +24,20 @@
             <li class="navbar__li">
                 <a class="navbar__link" href="/about">Sobre nosotros</a>
             </li>
-            <li class="navbar__li">
-                <a class="navbar__link" href="/login">Mi Cuenta</a>
+            <li class="navbar__li navbar__li--icon">
+                <a class="navbar__link navbar__link--icon" href="/user">
+                    <iconify-icon icon="tabler:user-circle"></iconify-icon>
+                </a>
+            </li>
+            <li class="navbar__li navbar__li--icon">
+                <a class="navbar__link navbar__link--icon" href="/auth/login">
+                    <iconify-icon icon="tabler:user-circle"></iconify-icon>
+                </a>
+            </li>
+            <li class="navbar__li navbar__li--icon">
+                <a class="navbar__link navbar__link--icon" href="/cart">
+                    <iconify-icon icon="tabler:shopping-cart"></iconify-icon>
+                </a>
             </li>
         </ul>
     </nav>
