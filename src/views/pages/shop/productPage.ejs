@@ -1,0 +1,77 @@
+<main class="main--product">
+    <div class="container container--body product-page">
+        <section class="product">
+            <div class="product__cover">
+                <div class="product__cover-info">
+                    <%- data.product.product_new ?
+                    '<p class="product__new">Nuevo</p>' : '' %>
+                    <% if (data.product.product_discount > 0) {%>
+                        <p class="product__new">- <%= data.product.product_discount %>%</p>
+                    <% } %>
+                </div>
+
+                <img src="<%= data.product.product_img %>" alt="<%= data.product.product_name %>">
+            </div>
+            <div class="product__content wrapper">
+                <div class="product__content-title">
+                    <p class="product__brand"><%= data.product.brand_name %></p>
+                    <p class="product__name"><%= data.product.product_name %></p>
+                </div>
+                <div class="product__price-container">
+                    <% if (data.product.product_discount > 0) {%>
+                        <span class="product__price">
+                            $<%= data.product.product_price_discount %>
+                            <span class="product__price--line">$<%= data.product.product_price %></span>
+                        </span>
+                    <% } else { %>
+                        <p class="product__price">$ <%= data.product.product_price %></p>
+                    <% } %>
+                    <p class="product__payments"><strong><%= data.product.product_payments %></strong> cuotas sin interés de <strong> $<%= data.product.product_price_payments %></strong></p>
+                </div>
+                <p class="product__ml"> TAMAÑO <%= data.product.product_ml %>ml</p>
+                <form action="POST" class="product__add-to-cart" data-id="<%= data.product.product_id %>">
+                    <div class="quantity quantity--product">
+                        <button class="quantity__btn quantity__btn--minus">-</button>
+                        <input class="quantity__input" type="number" name="quantity" min="1" max="<%= data.product.product_stock %>" value="1">
+                        <button class="quantity__btn quantity__btn--plus">+</button>
+                    </div>
+                    <button type="submit" class="btn btn--add-to-cart">Añadir a carrito</button>
+                </form>
+                <div class="product__links">
+                    <a href="#" class="product__link"><iconify-icon icon="tabler:credit-card"></iconify-icon> Ver formas de pago</a>
+                    <a href="#" class="product__link"><iconify-icon icon="tabler:truck"></iconify-icon> Ver tiempos y costos de envío</a>
+                </div>
+            </div>
+        </section>
+        <section class="product__details">
+            <section class="product__description">
+                <h2 class="product__details-title">Descripción</h2>
+                <%- data.product.product_description %>
+            </section>
+            <section class="product__specifications">
+                <h2 class="product__details-title">Especificaciones</h2>
+                <table class="product__table">
+                    <tr class="product__tr">
+                        <td class="product__td-key">Tipo</td>
+                        <td class="product__td-value"><%= data.product.product_type %></td>
+                    </tr>
+                    <tr class="product__tr">
+                        <td class="product__td-key">Genero</td>
+                        <td class="product__td-value"><%= data.product.product_gender %></td>
+                    </tr>
+                    <tr class="product__tr">
+                        <td class="product__td-key">Familia olfativa</td>
+                        <td class="product__td-value"><%= data.product.product_notes %></td>
+                    </tr>
+                    <tr class="product__tr">
+                        <td class="product__td-key">Tamaño</td>
+                        <td class="product__td-value"><%= data.product.product_ml %>ml</td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <%- include('../../shared/components/featured.ejs', {products: data.productsAll, title: 'Relacionados'}) %>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/scripts/libs/swiper.js"></script>
