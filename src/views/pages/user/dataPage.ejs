@@ -1,0 +1,110 @@
+<section class="panel-main">
+    <section class="panel-main__header">
+        <h1>Mis datos</h1>
+        <p>Modifica tus datos personales.</p>
+    </section>
+    <section>
+        <ul class="panel-main__body">
+            <li>
+                <article class="w-article w-article-wd">
+                    <div class="w-article__row">
+                        <a class="w-article__dropdown-link dd-toggle"><span>+</span>Agregar persona</a>
+                    </div>
+                    <!-- Agregar persona para recibir pedido -->
+                    <article class="w-article__dropdown">
+                        <section class="w-article__dropdown-body">
+                        <div class="w-article__inputs-row">
+                            <label class="label">
+                                <span>Nombre</span>
+                                <input class="input-text" type="text" name="name" placeholder="ej: Juan">
+                            </label>
+                            <label class="label">
+                                <span>Apellido</span>
+                                <input class="input-text" type="text" name="lastname" placeholder="ej: Perez">
+                            </label>
+                            <div class="input-wrapper">
+                                <label class="label">
+                                    <span>DNI</span>
+                                    <input class="input-text" type="number" name="name" placeholder="00.000.000">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="w-article__inputs-row">
+                            <label class="label">
+                                <span>Correo</span>
+                                <input class="input-text" type="email" name="email" placeholder="perez@gmail.com">
+                            </label>
+                            <label class="label">
+                                <span>Telefono</span>
+                                <input class="input-text" type="number" name="tel" placeholder="+56 987654321">
+                            </label>
+                        </div>
+                        <div class="w-article__inputs-row">
+                            <button class="btn">Guardar</button>
+                        </div>
+                    </section>
+                    </article>
+                </article>
+            </li>
+
+            <% data.dataList.forEach((data)=>{ %>
+
+            <li>
+                <article class="w-article" data-id="<%= data.cdata_id %>">
+                    <div class="w-article__row">
+                        <div class="w-article__content">
+                            <h2><%= data.cdata_name %> <%= data.cdata_lastname %></h2>
+                            <p>DNI: <%= data.cdata_dni %></p>
+                            <p>TEL: <%= data.cdata_tel %></p>
+                            <p>EMAIL: <%= data.cdata_email %></p>
+                        </div>
+                        <div class="w-article__btn-container">
+                            <a href="#" class="btn-rounded dd-toggle"><iconify-icon icon="tabler:edit"></iconify-icon></a>
+                            <a href="#" class="btn-rounded"><iconify-icon icon="tabler:trash-x"></iconify-icon></a>
+                        </div>
+                    </div>
+                    <!-- Agregar persona para recibir pedido -->
+                    <article class="w-article__dropdown">
+                        <section class="w-article__dropdown-body">
+
+                        
+                        <div class="w-article__inputs-row">
+                            <label class="label">
+                                <span>Nombre</span>
+                                <input class="input-text" type="text" name="name" placeholder="ej: Juan" value="<%= data.cdata_name %>" >
+                            </label>
+                            <label class="label">
+                                <span>Apellido</span>
+                                <input class="input-text" type="text" name="lastname" placeholder="ej: Perez" value="<%= data.cdata_lastname %>">
+                            </label>
+                            <div class="input-wrapper">
+                                <label class="label">
+                                    <span>DNI</span>
+                                    <input class="input-text" type="number" name="name" placeholder="00.000.000" value="<%= data.cdata_dni %>">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="w-article__inputs-row">
+                            <label class="label">
+                                <span>Correo</span>
+                                <input class="input-text" type="email" name="email" placeholder="perez@gmail.com" value="<%= data.cdata_email %>">
+                            </label>
+                            <label class="label">
+                                <span>Telefono</span>
+                                <input class="input-text" type="number" name="tel" placeholder="+56 987654321" value="<%= data.cdata_tel %>">
+                            </label>
+                        </div>
+                        <div class="w-article__inputs-row">
+                            <button class="btn">Guardar</button>
+                        </div>
+                    </section>
+                    </article>
+                </article>
+            </li>
+            <%})%>
+        </ul>
+
+
+
+    </section>
+</section>
