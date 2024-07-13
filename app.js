@@ -24,23 +24,19 @@ app.use(expressEjsLayouts)
 
 //Imports de rutas
 const mainRouter = require("./src/routes/mainRouter.js")
-const shopRouter = require("./src/routes/shopRouter.js")
-const cartRouter = require("./src/routes/cartRouter.js")
-const checkoutRouter = require("./src/routes/checkoutRouter.js")
-const authRouter = require("./src/routes/authRouter.js")
-const userRouter = require("./src/routes/userRouter.js")
-const adminRouter = require("./src/routes/adminRouter.js")
+/* const authRouter = require("./src/routes/authRouter.js")
+const adminRouter = require("./src/routes/mainRouter.js")
+const apiRouter = require("./src/routes/apiRouter.js") */
+const productsRouter = require("./src/routes/productsRouter.js")
 
 //Rutas
 app.use('/', mainRouter);
-app.use('/shop', shopRouter);
-app.use('/cart', cartRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/auth', authRouter);
-app.use('/user', userRouter);
+app.use('/product', productsRouter);
+/* app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
+app.use('/api', apiRouter); */
 
-app.use('', (req, res) => { res.render('pages/main/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
+//app.use('', (req, res) => { res.render('pages/main/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
 
 //Servidor
 app.listen(PORT, () => {
