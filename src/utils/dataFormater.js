@@ -2,32 +2,13 @@ const calcDiscount = (price, discount) => {
     return discount === 0 ? 0 : (price * (100 - discount) / 100).toFixed()
 }
 
-const productCardFormarter = (products) => {
-    const productsFormated = []
-
-    products.forEach(product => {
-        productsFormated.push({
-            product_sku: product.product_sku,
-            product_new: product.product_new == 1 ? false : true,
-            product_img: product.product_img,
-            brand_name: product.brand_name,
-            product_name: product.product_name,
-            product_discount: product.product_discount,
-            product_payments: product.product_payments,
-            product_price: product.product_price,
-            product_price_discount: calcDiscount(product.product_price, product.product_discount),
-            product_price_payments: (product.product_price / product.product_payments).toFixed(),
-        })
-    })
-    return productsFormated
-}
-
 const productFormarter = (product) => {
     return {
+        product_id: product.product_id,
         product_sku: product.product_sku,
-        product_new: product.product_new == 1 ? false : true,
+        product_new: product.product_new == 0 ? false : true,
+        product_status: product.product_status == 0 ? false : true,
         product_img: product.product_img,
-        brand_name: product.brand_name,
         product_name: product.product_name,
         product_discount: product.product_discount,
         product_payments: product.product_payments,
@@ -38,9 +19,21 @@ const productFormarter = (product) => {
         product_ml: product.product_ml,
         product_gender: product.product_gender,
         product_type: product.product_type,
-        product_notes: product.product_notes,
+        product_notes: product.product_notes == null ? 's/d' : product.product_notes,
         product_stock: product.product_stock,
+        brand_name: product.brand_name,
+        brand_id: product.brand_id,
     }
+}
+
+const productsListFormater = (productsList) => {
+    let productsFormatedList = []
+
+    productsList.forEach(product => {
+        const productFormated = productFormarter(product)
+        productsFormatedList.push(productFormated)
+    })
+    return productsFormatedList
 }
 
 /* Address Formater */
@@ -92,7 +85,7 @@ const paymentsFormarter = (paymentsList) => {
 }
 
 module.exports = {
-    productCardFormarter,
     productFormarter,
-    addressFormarter
+    addressFormarter,
+    productsListFormater
 }
