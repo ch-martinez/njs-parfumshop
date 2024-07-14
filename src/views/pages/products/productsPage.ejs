@@ -1,0 +1,97 @@
+<section class="main__header">
+    <div class="main__content">
+        <h2>Productos</h2>
+        <p>Administración de productos</p>
+    </div>
+</section>
+<section class="main__body">
+    <section class="wrapper">
+
+            <div class="panel-info">
+                <div class="panel-info__item">
+                    <iconify-icon icon="tabler:perfume"></iconify-icon>
+                    <div>
+                        <p class="panel-info__label">Total de productos</p>
+                        <p class="panel-info__value">170</p>
+                    </div>
+                </div>
+                <div class="panel-info__item">
+                    <iconify-icon icon="tabler:list-details"></iconify-icon>
+                    <div>
+                        <p class="panel-info__label">Total de marcas</p>
+                        <p class="panel-info__value">10</p>
+                    </div>
+                </div>
+                <a href="#" class="panel-info__item panel-info__item--link">
+                    <iconify-icon icon="tabler:circle-check"></iconify-icon>
+                    <div>
+                        <p class="panel-info__label">Activos</p>
+                        <p class="panel-info__value">166</p>
+                    </div>
+                </a>
+                <a href="#" class="panel-info__item panel-info__item--link">
+                    <iconify-icon icon="tabler:alert-triangle"></iconify-icon>
+                    <div>
+                        <p class="panel-info__label">Poco stock <small>(menos de 5)</small> </p>
+                        <p class="panel-info__value">7</p>
+                    </div>
+                </a>
+                <div class="panel-info__btn-container">
+                    <a href="/admin/product/new" class="btn">
+                        <iconify-icon icon="tabler:apps"></iconify-icon>
+                        <span>Acciones</span>
+                    </a>
+                    <a href="/admin/product/new" class="btn">
+                        <iconify-icon icon="tabler:circle-plus"></iconify-icon>
+                        <span>Nuevo producto</span>
+                    </a>
+                </div>
+            </div>
+
+    </section>
+    <section class="wrapper">
+        <div class="wrapper__body">
+            <table id="panel-table" class="table">
+                <thead class="table__head">
+                    <tr class="table__row-head">
+                        <th class="table__cell"><input type="checkbox" name="" id=""></th>
+                        <th class="table__cell">Producto</th>
+                        <th class="table__cell">Marca</th>
+                        <th class="table__cell">SKU</th>
+                        <th class="table__cell">Stock</th>
+                        <th class="table__cell">Precio</th>
+                        <th class="table__cell">Estado</th>
+                        <th class="table__cell"></th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <% data.products.forEach((product) => { %>
+                    <tr class="table__row">
+                        <td class="table__cell"><input type="checkbox" name="<%= product.product_id %>" id="<%= product.product_id %>"></td>
+                        <td class="table__cell">
+                            <a href="/product/<%= product.product_id %>" class="link link--table"><%= product.product_name %></a>
+                        </td>
+                        <td class="table__cell">
+                            <a href="/brand/<%= product.product_id %>" class="link link--table"><%= product.brand_name %></a>
+                        </td>
+                        <td class="table__cell"><%= product.product_sku %></td>
+                        <td class="table__cell"><%= product.product_stock %></td>
+                        <td class="table__cell">$<%= product.product_price %></td>
+                        <td class="table__cell">
+                            <% if (product.product_status == true) { %>
+                                <span class="badge badge--green">activo</span>
+                            <% } else { %>
+                                <span class="badge badge--red">inactivo</span>
+                            <% } %>
+                        </td>
+                        <td class="table__cell">
+                            <a href="/admin/client/edit/1" class="btn-table"><iconify-icon icon="tabler:edit"></iconify-icon></a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>
