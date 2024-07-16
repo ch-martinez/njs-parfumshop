@@ -1,97 +1,120 @@
 <section class="main__header">
     <div class="header__content">
         <h2>Editar producto <span class="header__id" data-id="<%= data.product.product_id %>">(id: <%= data.product.product_id %>)</span></h2>
+        <p>Modifique los datos necesarios</p>
     </div>
 
     <div class="header__btn-container">
-        <a href="/product/new" class="btn">
+        <button class="btn btn--gray" id="btnBack">
             <iconify-icon icon="tabler:xbox-x"></iconify-icon>
             <span>Cancelar</span>
-        </a>
-        <a href="/product/<%= data.product.product_id %>/edit" class="btn">
-            <iconify-icon icon="tabler:edit"></iconify-icon>
+        </button>
+        <a href="/product/<%= data.product.product_id %>/edit" class="btn btn--green">
+            <iconify-icon icon="tabler:circle-check"></iconify-icon>
             <span>Guardar</span>
         </a>
     </div>
-
 </section>
+
 <form class="main__body-column">
-
     <section class="main__body-column__left">
-
         <section class="wrapper">
-            <div class="wrapper__header">
+            <div class="wrapper__header wrapper__header--with-badge">
                 <h2 class="wrapper__subtitle">General</h2>
+                
+                    <label for="product_status" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="product_status" id="product_status" value="1" <%=data.product.product_status==1 ? 'checked' : '' %>>
+                        <span>Activo</span>
+                    </label>
+                
             </div>
             <div class="wrapper__body">
-                <div class="wrapper__group">
-                    <div class="w-article__inputs-row">
-                        <label class="label">
-                            <span>Nombre</span>
-                            <input class="input-text" type="text" name="product_name" value="<%= data.product.product_name %>">
-                        </label>
-                        
-                        <label for="brand_id" class="label">
-                            <span>Marca</span>
-                            <select name="brand_id" class="input-select">
-                                <% data.brands.forEach(brand => { %>
-                                    <option value="<%= brand.brand_id %>" <%= data.product.brand_id == brand.brand_id ? 'selected' : '' %>><%= brand.brand_name %></option>
-                                    <% }) %>
-                                </select>
-                            </label>
-                        </div>
+                <div class="wrapper__row wrapper__row--2-1">
+                    <label class="label">
+                        <span>Nombre</span>
+                        <input id="product_name" class="input-text" type="text" name="product_name" value="<%= data.product.product_name %>">
+                    </label>
 
-                    <div class="w-article__inputs-row">
-                        <label class="label">
-                            <span>Descripción</span>
-                            <textarea class="input-textarea" name="product_description"><%= data.product.product_description %></textarea> 
-                        </label>
-                    </div>
+                    <label for="brand_id" class="label">
+                        <span class="label__span-link">Marca <a href="/brand/new" class="link">+ Añadir</a></span>
+                        <select name="brand_id" class="input-select">
+                            <% data.brands.forEach(brand=> { %>
+                                <option value="<%= brand.brand_id %>" <%=data.product.brand_id==brand.brand_id ? 'selected' : '' %>><%= brand.brand_name %></option>
+                            <% }) %>
+                        </select>
+                    </label>
                 </div>
+
                 <div class="wrapper__row">
+                    <label class="label">
+                        <span>Descripción</span>
+                        <textarea class="input-textarea" name="product_description" rows="12"><%= data.product.product_description %></textarea>
+                    </label>
+                </div>
+
+                <div class="wrapper__row wrapper__row--4">
                     <label for="product_ml" class="label">
                         <span>ML</span>
-                        <input class="input-text" type="number" name="product_ml" value="<%= data.product.product_ml %>">
+                        <input class="input-text" type="number" name="product_ml"
+                            value="<%= data.product.product_ml %>">
                     </label>
                     <label for="product_notes" class="label">
                         <span>Notas</span>
-                        <input class="input-text" type="text" name="product_notes" value="<%= data.product.product_notes %>">
+                        <input class="input-text" type="text" name="product_notes"
+                            value="<%= data.product.product_notes %>">
                     </label>
                     <label for="product_gender" class="label">
                         <span>Genero</span>
-                        <select name="product_gender"  class="input-select">
-                            <option value="Masculino" <%= data.product.product_gender == 'Masculino' ? 'selected' : '' %>>Masculino</option>
-                            <option value="Femenino" <%= data.product.product_gender == 'Femenino' ? 'selected' : '' %>>Femenino</option>
-                            <option value="Unisex" <%= data.product.product_gender == 'Unisex' ? 'selected' : '' %>>Unisex</option>
-                            <option value="Fragancias" <%= data.product.product_gender == 'Fragancias' ? 'selected' : '' %>>Fragancias</option>
+                        <select name="product_gender" class="input-select">
+                            <option value="Masculino" <%=data.product.product_gender=='Masculino' ? 'selected' : '' %>>Masculino</option>
+                            <option value="Femenino" <%=data.product.product_gender=='Femenino' ? 'selected' : '' %>>Femenino</option>
+                            <option value="Unisex" <%=data.product.product_gender=='Unisex' ? 'selected' : '' %>>Unisex</option>
+                            <option value="Fragancias" <%=data.product.product_gender=='Fragancias' ? 'selected' : '' %>>Fragancias</option>
                         </select>
                     </label>
                     <label for="product_type" class="label">
                         <span>Tipo</span>
-                        <select name="product_type"  class="input-select">
-                            <option value="Eau de Parfum" <%= data.product.product_type == 'Eau de Parfum' ? 'selected' : '' %>>Eau de Parfum</option>
-                            <option value="Eau de Toilette" <%= data.product.product_type == 'Eau de Toilette' ? 'selected' : '' %>>Eau de Toilette</option>
-                            <option value="Desodorante" <%= data.product.product_type == 'Desodorante' ? 'selected' : '' %>>Desodorante</option>
-                            <option value="After Shave" <%= data.product.product_type == 'After Shave' ? 'selected' : '' %>>After Shave</option>
+                        <select name="product_type" class="input-select">
+                            <option value="Eau de Parfum" <%=data.product.product_type=='Eau de Parfum' ? 'selected' : '' %>>Eau de Parfum</option>
+                            <option value="Eau de Toilette" <%=data.product.product_type=='Eau de Toilette' ? 'selected' : '' %>>Eau de Toilette</option>
+                            <option value="Desodorante" <%=data.product.product_type=='Desodorante' ? 'selected' : '' %>>Desodorante</option>
+                            <option value="After Shave" <%=data.product.product_type=='After Shave' ? 'selected' : '' %>>After Shave</option>
                         </select>
                     </label>
                 </div>
             </div>
         </section>
 
-
         <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Inventario</h2>
+            </div>
             <div class="wrapper__body">
-                <div class="wrapper__row wrapper__row--cost">
-
-                    <label class="label">
-                        <span>SKU</span>
-                        <input class="input-text" type="number" name="product_name" value="<%= data.product.product_sku %>">
-                    </label>
+                <div class="wrapper__row wrapper__row--3">
                     <label for="product_stock" class="label">
                         <span>Stock</span>
                         <input class="input-text" type="number" name="product_stock" value="<%= data.product.product_stock %>">
                     </label>
+                    <label class="label">
+                        <span>SKU</span>
+                        <input class="input-text" type="number" name="product_name" value="<%= data.product.product_sku %>">
+                    </label>
+
+                    <label for="brand_id" class="label">
+                        <span class="label__span-link">Proveedor <a href="/provider/new" class="link">+ Añadir</a></span>
+                        <select name="brand_id" class="input-select">
+                            <% data.brands.forEach(brand=> { %>
+                                <option value="<%= brand.brand_id %>" <%=data.product.brand_id==brand.brand_id? 'selected' : '' %>><%= brand.brand_name %></option>
+                            <% }) %>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--4">
                     <label for="product_price" class="label">
                         <span>Precio Lista</span>
                         <input class="input-text" type="number" name="product_price" value="<%= data.product.product_price %>">
@@ -107,47 +130,56 @@
                     <label for="product_payments" class="label">
                         <span>Cuotas</span>
                         <select name="product_payments" class="input-select">
-                            <% data.payments.forEach(payment => { %>
+                            <% data.payments.forEach(payment=> { %>
                                 <option value="<%= payment.payment_id %>"><%= payment.payment_quantity %> - <%= payment.payment_interest %>% de interés</option>
                             <% }) %>
                         </select>
                     </label>
                 </div>
-                
             </div>
         </section>
+        
+        <hr>
+
         <section class="wrapper wrapper--delete">
             <div class="wrapper__header">
                 <h2 class="wrapper__subtitle">Eliminar</h2>
             </div>
             <div class="wrapper__body">
                 <div class="wrapper__group">
-                    <span>Esta accion eliminara definitivamente el producto y no se puede deshacer</span>
-                    <button class="btn btn--danger" data-id="<%= data.product.product_id %>">Eliminar</button>
+                    <p>Elimina definitivamente el producto. Esta acción no se puede deshacer</p>
+                    <button id="btn-delete" class="btn btn--red" data-id="<%= data.product.product_id %>" type="button">Eliminar</button>
                 </div>
             </div>
         </section>
+
     </section>
-<!-- ----------------------------------------------------------------------------  -->
+
+    <!-- ----------------------------------------------------------------------------  -->
+
     <section class="main__body-column__right">
         <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Indicadores</h2>
+            </div>
             <div class="wrapper__body">
-                <div class="wrapper__row">
-                    <div class="wrapper__item">
-                        <p class="wrapper__item__key">Creado</p>
-                        <p class="wrapper__item__value">26/01/2023</p>
-                    </div>
-                    <div class="wrapper__item">
-                        <p class="wrapper__item__key">Modificado</p>
-                        <p class="wrapper__item__value">14/05/2023</p>
-                    </div>
-                    <div class="wrapper__item">
-                        <p class="wrapper__item__key">Estado</p>
-                        <div>
-                            <span class="badge badge--green">ACTIVO</span>
-                            <span class="badge badge--blue">NUEVO</span>
-                        </div>
-                    </div>
+                <div class="wrapper__row wrapper__row--auto">
+                    <label for="product_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                        <span>Nuevo</span>
+                    </label>
+                    <label for="product_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags. ==1 ? 'checked' : '' %>>
+                        <span>Promocional</span>
+                    </label>
+                    <label for="product_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                        <span>Destacado</span>
+                    </label>
+                    <label for="product_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                        <span>Más vendido</span>
+                    </label>
                 </div>
             </div>
         </section>
@@ -158,11 +190,11 @@
             <div class="wrapper__body">
                 <div class="wrapper__img-container">
                     <img src="<%= data.product.product_img %>" alt="<%= data.product.product_name %>">
-                    </p>
                 </div>
+            </div>
+            <div class="wrapper__footer">
+                <input type="file" accept="image/*" name="product_img" id="product_img">
             </div>
         </section>
     </section>
-
-
 </form>
