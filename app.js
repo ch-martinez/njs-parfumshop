@@ -24,19 +24,13 @@ app.use(expressEjsLayouts)
 
 //Imports de rutas
 const mainRouter = require("./src/routes/mainRouter.js")
-/* const authRouter = require("./src/routes/authRouter.js")
-const adminRouter = require("./src/routes/mainRouter.js")
-const apiRouter = require("./src/routes/apiRouter.js") */
 const productsRouter = require("./src/routes/productsRouter.js")
 
 //Rutas
 app.use('/', mainRouter);
 app.use('/product', productsRouter);
-/* app.use('/auth', authRouter);
-app.use('/admin', adminRouter);
-app.use('/api', apiRouter); */
 
-//app.use('', (req, res) => { res.render('pages/main/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
+app.use('', (req, res) => { res.render('pages/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
 
 //Servidor
 app.listen(PORT, () => {
