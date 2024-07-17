@@ -1,6 +1,6 @@
 <section class="main__header">
     <div class="header__content">
-        <h2>Editar producto <span class="header__id" data-id="<%= data.product.product_id %>">(id: <%= data.product.product_id %>)</span></h2>
+        <h2>Editar producto <span class="header__id">(id: <%= data.product.product_id %>)</span></h2>
         <p>Modifique los datos necesarios</p>
     </div>
 
@@ -58,10 +58,10 @@
                         <input class="input-text" type="number" name="product_ml"
                             value="<%= data.product.product_ml %>">
                     </label>
-                    <label for="product_notes" class="label">
-                        <span>Notas</span>
-                        <input class="input-text" type="text" name="product_notes"
-                            value="<%= data.product.product_notes %>">
+                    <label for="product_family" class="label">
+                        <span>Familia Olfativa</span>
+                        <input class="input-text" type="text" name="product_family"
+                            value="<%= data.product.product_family %>">
                     </label>
                     <label for="product_gender" class="label">
                         <span>Genero</span>
@@ -100,11 +100,11 @@
                         <input class="input-text" type="number" name="product_name" value="<%= data.product.product_sku %>">
                     </label>
 
-                    <label for="brand_id" class="label">
+                    <label for="provider_id" class="label">
                         <span class="label__span-link">Proveedor <a href="/provider/new" class="link">+ Añadir</a></span>
-                        <select name="brand_id" class="input-select">
-                            <% data.brands.forEach(brand=> { %>
-                                <option value="<%= brand.brand_id %>" <%=data.product.brand_id==brand.brand_id? 'selected' : '' %>><%= brand.brand_name %></option>
+                        <select name="provider_id" class="input-select">
+                            <% data.providers.forEach(provider=> { %>
+                                <option value="<%= provider.provider_id %>" <%= data.product.provider_id == provider.provider_id ? 'selected' : '' %>><%= provider.provider_name %></option>
                             <% }) %>
                         </select>
                     </label>
@@ -115,13 +115,13 @@
         <section class="wrapper">
             <div class="wrapper__body">
                 <div class="wrapper__row wrapper__row--4">
-                    <label for="product_price" class="label">
+                    <label for="product_price_list" class="label">
                         <span>Precio Lista</span>
-                        <input class="input-text" type="number" name="product_price" value="<%= data.product.product_price %>">
+                        <input class="input-text" type="number" name="product_price_list" value="<%= data.product.product_price_list_list %>">
                     </label>
-                    <label for="product_price" class="label">
+                    <label for="product_price_sell" class="label">
                         <span>Precio Venta</span>
-                        <input class="input-text" type="number" name="product_price" value="<%= data.product.product_price %>">
+                        <input class="input-text" type="number" name="product_price_sell" value="<%= data.product.product_price_sell %>">
                     </label>
                     <label for="product_discount" class="label">
                         <span>Descuento</span>
@@ -164,20 +164,20 @@
             </div>
             <div class="wrapper__body">
                 <div class="wrapper__row wrapper__row--auto">
-                    <label for="product_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                    <label for="flag_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="flag_new" id="flag_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
                         <span>Nuevo</span>
                     </label>
-                    <label for="product_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags. ==1 ? 'checked' : '' %>>
+                    <label for="flag_promoted" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="flag_promoted" id="flag_promoted"<%=data.product.product_flags.promoted ==1 ? 'checked' : '' %>>
                         <span>Promocional</span>
                     </label>
-                    <label for="product_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                    <label for="flag_featured" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="flag_featured" id="flag_featured"<%=data.product.product_flags.featured ==1 ? 'checked' : '' %>>
                         <span>Destacado</span>
                     </label>
-                    <label for="product_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="product_new" id="product_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                    <label for="flag_topSeller" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="flag_topSeller" id="flag_topSeller"<%=data.product.product_flags.topSeller ==1 ? 'checked' : '' %>>
                         <span>Más vendido</span>
                     </label>
                 </div>
