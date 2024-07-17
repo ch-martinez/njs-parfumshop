@@ -76,7 +76,7 @@
                         </td>
                         <td class="table__cell"><%= product.product_sku %></td>
                         <td class="table__cell"><%= product.product_stock %></td>
-                        <td class="table__cell">$<%= product.product_price %></td>
+                        <td class="table__cell">$<%= product.product_price_sell %></td>
                         <td class="table__cell">
                             <% if (product.product_status == true) { %>
                                 <span class="badge badge--green">activo</span>
@@ -89,7 +89,6 @@
                         </td>
                     </tr>
                     <% }) %>
-                    
                 </tbody>
             </table>
         </div>
