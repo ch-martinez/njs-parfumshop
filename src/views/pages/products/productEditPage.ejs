@@ -9,25 +9,25 @@
             <iconify-icon icon="tabler:xbox-x"></iconify-icon>
             <span>Cancelar</span>
         </button>
-        <a href="/product/<%= data.product.product_id %>/edit" class="btn btn--green">
+        <button href="/product/<%= data.product.product_id %>/edit" class="btn btn--green" type="submit" form="form-product-edit">
             <iconify-icon icon="tabler:circle-check"></iconify-icon>
             <span>Guardar</span>
-        </a>
+        </button>
     </div>
 </section>
 
-<form class="main__body-column">
+<form id="form-product-edit" class="main__body-column" method="POST" action="/product/<%= data.product.product_id %>/edit">
     <section class="main__body-column__left">
         <section class="wrapper">
+
             <div class="wrapper__header wrapper__header--with-badge">
                 <h2 class="wrapper__subtitle">General</h2>
-                
                     <label for="product_status" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="product_status" id="product_status" value="1" <%=data.product.product_status==1 ? 'checked' : '' %>>
+                        <input class="checkbox" type="checkbox" name="product_status" id="product_status" <%= data.product.product_status == 1 ? 'checked' : '' %>>
                         <span>Activo</span>
                     </label>
-                
             </div>
+
             <div class="wrapper__body">
                 <div class="wrapper__row wrapper__row--2-1">
                     <label class="label">
@@ -97,7 +97,7 @@
                     </label>
                     <label class="label">
                         <span>SKU</span>
-                        <input class="input-text" type="number" name="product_name" value="<%= data.product.product_sku %>">
+                        <input class="input-text" type="number" name="product_sku" value="<%= data.product.product_sku %>">
                     </label>
 
                     <label for="provider_id" class="label">
@@ -117,7 +117,7 @@
                 <div class="wrapper__row wrapper__row--4">
                     <label for="product_price_list" class="label">
                         <span>Precio Lista</span>
-                        <input class="input-text" type="number" name="product_price_list" value="<%= data.product.product_price_list_list %>">
+                        <input class="input-text" type="number" name="product_price_list" value="<%= data.product.product_price_list %>">
                     </label>
                     <label for="product_price_sell" class="label">
                         <span>Precio Venta</span>
@@ -127,9 +127,9 @@
                         <span>Descuento</span>
                         <input class="input-text" type="number" name="product_discount" value="<%= data.product.product_discount %>">
                     </label>
-                    <label for="product_payments" class="label">
+                    <label for="payment_id" class="label">
                         <span>Cuotas</span>
-                        <select name="product_payments" class="input-select">
+                        <select name="payment_id" class="input-select">
                             <% data.payments.forEach(payment=> { %>
                                 <option value="<%= payment.payment_id %>"><%= payment.payment_quantity %> - <%= payment.payment_interest %>% de interés</option>
                             <% }) %>
@@ -148,8 +148,7 @@
             <div class="wrapper__body">
                 <div class="wrapper__group">
                     <p>Elimina definitivamente el producto. Esta acción no se puede deshacer</p>
-                    <button id="btn-delete" class="btn btn--red" data-id="<%= data.product.product_id %>" type="button">Eliminar</button>
-                </div>
+                    <button id="btn-delete" class="btn btn--red"  type="button" data-id="<%= data.product.product_id %>" data-item="product">Eliminar</button>                </div>
             </div>
         </section>
 
