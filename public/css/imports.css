@@ -8,25 +8,18 @@
 @import url('/css/inputs.css');
 
 /* Componentes */
-@import url('/css/components/hero.css');
-@import url('/css/components/product-card.css');
-@import url('/css/components/promoted.css');
-@import url('/css/components/featured.css');
+@import url('/css/components/badge.css');
 @import url('/css/components/wrapper.css');
 
-
+/* libs */
+@import url('/css/libs/swal.css');
+@import url('/css/libs/simpledatatables.css');
 
 /* Partials */
 @import url('/css/partials/header.css');
 @import url('/css/partials/footer.css');
 @import url('/css/partials/panel_aside.css'); 
 
-@import url('/css/libs/swipper.css');
 
 /* Paginas */
-@import url('/css/pages/shop.css');
-@import url('/css/pages/product.css');
-@import url('/css/pages/cart.css');
-@import url('/css/pages/checkout.css');
-@import url('/css/pages/auth.css');
-@import url('/css/pages/user.css');
+@import url('/css/pages/main.css');
