@@ -82,10 +82,16 @@
     color: var(--zinc-700);
 }
 
+.label__span-link{
+    display: flex;
+    justify-content: space-between;
+}
+
 .label--checkbox{
     flex-direction: row;
     align-items: center;
     gap: var(--sp-8);
+    text-wrap: nowrap;
 }
 
 /* Buttons */
@@ -96,25 +102,41 @@
     gap: var(--sp-8);
     width: fit-content;
     max-height: 36px;
+    height: 100%;
     padding: var(--sp-8) var(--sp-12);
     border: none;
-    border-radius: var(--radius-xs);
-    background: var(--primary-400);
+    border-radius: var(--radius-sm);
+    background: var(--primary-600);
     color: #FFF;
-    cursor: pointer;
-    transition: all var(--transition-02);
+    font-size: var(--md);
     font-weight: var(--medium);
     text-align: center;
     text-wrap: nowrap;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all var(--transition-02);
 }
 
     .btn:hover{
-        background: var(--primary-500);
+        opacity: 1;
     }
 
     .btn iconify-icon{
         font-size: var(--2xl);
     }
+
+/* BTN Colors */
+.btn--red{
+    background-color: var(--badge-red);
+}
+
+.btn--green{
+    background-color: var(--badge-green);
+}
+
+.btn--gray{
+    background-color: var(--badge-gray);
+}
 
 .btn--full{
     width: 100%;
@@ -124,10 +146,17 @@
     letter-spacing: 1px;
 }
 
+.btn-table{
+    color: var(--zinc-500);
+    font-size: var(--3xl);
+    transition: all var(--transition-02);
+    display: inline-block;
+}
+    .btn-table:hover{
+        color: var(--primary-500);
+    }
+/* 
 .btn-rounded{
-/*     --size: 30px;
-    width: var(--size);
-    height: var(--size); */
     padding: var(--sp-8);
     display: grid;
     place-items: center;
@@ -145,16 +174,9 @@
         border-color: var(--primary-500);
     }
 
-.btn-table{
-    color: var(--zinc-500);
-    font-size: var(--2xl);
-    transition: all var(--transition-02);
-    display: inline-block;
-}
 
-    .btn-table:hover{
-        color: var(--primary-500);
-    }
+
+
 
 .btn--cancel{
     background-color: var(--zinc-300);
@@ -162,7 +184,7 @@
 
 .btn--cancel:hover{
     background-color: var(--zinc-400);
-}
+} */
 
 /* Links */
 
@@ -176,3 +198,11 @@
         color: var(--primary-500);
         text-decoration: underline;
     }
+
+
+
+.checkbox{
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-500);
+}

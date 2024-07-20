@@ -1,0 +1,220 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Detalle del producto <span class="header__id">(id: <%= data.product.product_id %>)</span></h2>
+        <p>Se muestra todo el detalle del producto</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:arrow-back-up"></iconify-icon>
+            <span>Volver</span>
+        </button>
+        <% if (data.product.product_status == 1) {%>
+            <button class="btn btn--red" type="button" id="btn-status" data-id="<%= data.product.product_id %>" data-status="0" data-item="product">
+                <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+                <span>Desactivar</span>
+            </button>
+        <%}else{%>
+            <button class="btn btn--green" type="button" id="btn-status" data-id="<%= data.product.product_id %>" data-status="1" data-item="product">
+                <iconify-icon icon="tabler:circle-check"></iconify-icon>
+                <span>Activar</span>
+            </button>
+        <%}%>
+        <a href="/product/<%= data.product.product_id %>/edit" class="btn">
+            <iconify-icon icon="tabler:edit"></iconify-icon>
+            <span>Editar</span>
+        </a>
+    </div>
+
+</section>
+<section class="main__body-column">
+
+    <section class="main__body-column__left">
+
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <% if (data.product.product_status == 1) {%>
+                    <span class="badge badge--green">activo</span>
+                <%}else{%>
+                    <span class="badge badge--red">inactivo</span>
+                <%}%>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__group">
+                    <div class="wrapper__row wrapper__row--2-1">
+
+                        <div class="wrapper__item">
+                            <p class="wrapper__item__key">Nombre</p>
+                            <p class="wrapper__item__value" id="name" data-name="<%= data.product.product_name %>">
+                                <%= data.product.product_name %>
+                            </p>
+                        </div>
+                        <div class="wrapper__item">
+                            <p class="wrapper__item__key">Marca</p>
+                            <p class="wrapper__item__value">
+                                <%= data.product.brand_name %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wrapper__row">
+
+                        <div class="wrapper__item">
+                            <p class="wrapper__item__key">Description</p>
+                            <p class="wrapper__item__value">
+                                <%= data.product.product_description %>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="wrapper__row wrapper__row--4">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">ML</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_ml %>ml
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Familia Olfativa</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_family %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Genero</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_gender %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Tipo</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_type %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Inventario</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Stock</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_stock %>
+                        </p>
+                    </div>
+                        <div class="wrapper__item">
+                            <p class="wrapper__item__key">SKU</p>
+                            <p class="wrapper__item__value" data-="">
+                                <%= data.product.product_sku %>
+                            </p>
+                        </div>
+                        <div class="wrapper__item">
+                            <p class="wrapper__item__key">Proveedor</p>
+                            <p class="wrapper__item__value" data-="">
+                                <%= data.product.provider_name %>
+                            </p>
+                        </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Precio Lista</p>
+                        <p class="wrapper__item__value">$<%= data.product.product_price_list %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Precio Venta</p>
+                        <p class="wrapper__item__value">$<%= data.product.product_price_sell %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Descuento</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.product_discount %>%
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Precio con descuento</p>
+                        <p class="wrapper__item__value">$<%= data.product.product_price_discount %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Cuotas</p>
+                        <p class="wrapper__item__value">
+                            <%= data.product.payment_quantity %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Precio de cuota</p>
+                        <p class="wrapper__item__value">$<%= data.product.product_price_payments %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </section>
+    <!-- ----------------------------------------------------------------------------  -->
+    <section class="main__body-column__right">
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Creado</p>
+                        <p class="wrapper__item__value"><%= data.product.product_created %></p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Modificado</p>
+                        <p class="wrapper__item__value"><%= data.product.product_updated %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Indicadores</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--auto">
+                    <span class="badge <%= data.product.product_flags.new ? 'badge--blue' : '' %>">Nuevo</span>
+                    <span class="badge <%= data.product.product_flags.promoted ? 'badge--blue' : '' %>">Promocional</span>
+                    <span class="badge <%= data.product.product_flags.featured ? 'badge--blue' : '' %>">Destacado</span>
+                    <span class="badge <%= data.product.product_flags.topSeller ? 'badge--blue' : '' %>">Mas vendido</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Imagenes</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__img-container">
+                    <img src="<%= data.product.product_img %>" alt="<%= data.product.product_name %>">
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+</section>
