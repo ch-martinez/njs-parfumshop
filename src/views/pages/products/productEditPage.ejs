@@ -9,14 +9,14 @@
             <iconify-icon icon="tabler:xbox-x"></iconify-icon>
             <span>Cancelar</span>
         </button>
-        <button href="/product/<%= data.product.product_id %>/edit" class="btn btn--green" type="submit" form="form-product-edit">
+        <button class="btn btn--green" type="submit" form="form">
             <iconify-icon icon="tabler:circle-check"></iconify-icon>
             <span>Guardar</span>
         </button>
     </div>
 </section>
 
-<form id="form-product-edit" class="main__body-column" method="POST" action="/product/<%= data.product.product_id %>/edit">
+<form id="form" class="main__body-column" method="POST" data-type="product" data-id="<%= data.product.product_id %>">
     <section class="main__body-column__left">
         <section class="wrapper">
 
