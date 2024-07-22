@@ -1,0 +1,14 @@
+.sdt-pagination-list li button{
+    font-weight: var(--medium);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-01);
+}
+
+.sdt-active button, .sdt-pagination-list li button:hover{
+    background-color: var(--primary-400) !important;
+    color: #FFF;
+}
+
+.datatable-sorter{
+    padding-right: 18px !important;
+}
