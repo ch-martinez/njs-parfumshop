@@ -9,14 +9,14 @@
             <iconify-icon icon="tabler:xbox-x"></iconify-icon>
             <span>Cancelar</span>
         </button>
-        <button class="btn btn--green" type="submit" form="form-product-new">
+        <button class="btn btn--green" type="submit" form="form">
             <iconify-icon icon="tabler:circle-check"></iconify-icon>
             <span>Guardar</span>
         </button>
     </div>
 </section>
 
-<form class="main__body-column" action="/product/new" method="post" id="form-product-new">
+<form id="form" class="main__body-column" method="POST" data-route="product"  data-type="new">
     <section class="main__body-column__left">
         <section class="wrapper">
             <div class="wrapper__header wrapper__header--with-badge">
@@ -147,20 +147,20 @@
             </div>
             <div class="wrapper__body">
                 <div class="wrapper__row wrapper__row--auto">
-                    <label for="flag_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_new" id="flag_new" checked>
+                    <label for="pf_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_new" id="pf_new" checked>
                         <span>Nuevo</span>
                     </label>
-                    <label for="flag_promoted" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_promoted" id="flag_promoted">
+                    <label for="pf_promoted" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_promoted" id="pf_promoted">
                         <span>Promocional</span>
                     </label>
-                    <label for="flag_featured" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_featured" id="flag_featured">
+                    <label for="pf_featured" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_featured" id="pf_featured">
                         <span>Destacado</span>
                     </label>
-                    <label for="flag_topSeller" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_topSeller" id="flag_topSeller">
+                    <label for="pf_topSeller" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_topSeller" id="pf_topSeller">
                         <span>Más vendido</span>
                     </label>
                 </div>
