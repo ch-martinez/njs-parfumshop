@@ -1,0 +1,12 @@
+.dropdown{
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all var(--transition-03);
+}
+
+.dropdown--active{
+    max-height: 900px;
+    margin-top: var(--sp-16);
+    opacity: 1;
+}
