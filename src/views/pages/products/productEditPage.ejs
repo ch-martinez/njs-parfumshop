@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<form id="form" class="main__body-column" method="POST" data-type="product" data-id="<%= data.product.product_id %>">
+<form id="form" class="main__body-column" method="POST" data-id="<%= data.product.product_id %>" data-route="product"  data-type="edit">
     <section class="main__body-column__left">
         <section class="wrapper">
 
@@ -148,7 +148,7 @@
             <div class="wrapper__body">
                 <div class="wrapper__group">
                     <p>Elimina definitivamente el producto. Esta acción no se puede deshacer</p>
-                    <button id="btn-delete" class="btn btn--red"  type="button" data-id="<%= data.product.product_id %>" data-item="product">Eliminar</button>                </div>
+                    <button id="btn-delete" class="btn btn--red"  type="button" data-id="<%= data.product.product_id %>" data-route="product">Eliminar</button>                </div>
             </div>
         </section>
 
@@ -163,20 +163,20 @@
             </div>
             <div class="wrapper__body">
                 <div class="wrapper__row wrapper__row--auto">
-                    <label for="flag_new" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_new" id="flag_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
+                    <label for="pf_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_new" id="pf_new"<%=data.product.product_flags.new ==1 ? 'checked' : '' %>>
                         <span>Nuevo</span>
                     </label>
-                    <label for="flag_promoted" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_promoted" id="flag_promoted"<%=data.product.product_flags.promoted ==1 ? 'checked' : '' %>>
+                    <label for="pf_promoted" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_promoted" id="pf_promoted"<%=data.product.product_flags.promoted ==1 ? 'checked' : '' %>>
                         <span>Promocional</span>
                     </label>
-                    <label for="flag_featured" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_featured" id="flag_featured"<%=data.product.product_flags.featured ==1 ? 'checked' : '' %>>
+                    <label for="pf_featured" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_featured" id="pf_featured"<%=data.product.product_flags.featured ==1 ? 'checked' : '' %>>
                         <span>Destacado</span>
                     </label>
-                    <label for="flag_topSeller" class="label label--checkbox">
-                        <input class="checkbox" type="checkbox" name="flag_topSeller" id="flag_topSeller"<%=data.product.product_flags.topSeller ==1 ? 'checked' : '' %>>
+                    <label for="pf_topseller" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_topseller" id="pf_topseller"<%=data.product.product_flags.topSeller ==1 ? 'checked' : '' %>>
                         <span>Más vendido</span>
                     </label>
                 </div>
