@@ -12,15 +12,15 @@ config()
     queueLimit: 0
 }) */
 
-    const pool = createPool({
-        host: 'localhost',
-        user: 'root',
-        database: 'parfumshop',
-        password: '',
-        waitForConnections: true,
-        connectionLimit: 5,
-        queueLimit: 0
-    })
+const pool = createPool({
+    host: 'localhost',
+    user: 'root',
+    database: 'parfumshop',
+    password: '',
+    waitForConnections: true,
+    connectionLimit: 5,
+    queueLimit: 0
+})
 
 pool.getConnection()
     .then(connection => {
@@ -30,16 +30,5 @@ pool.getConnection()
     .catch(err => {
         console.log(`>>> DB: Error al obtener la conexion, ${err}`)
     })
-
-
-    const testConnection = async () => {
-        try {
-            const [rows] = await pool.query('SELECT * FROM products;');
-        } catch (error) {
-            console.error('Error al ejecutar la consulta de prueba:', error);
-        }
-    };
-    
-    //testConnection();
 
 module.exports = {pool}
