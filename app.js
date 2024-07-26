@@ -25,10 +25,12 @@ app.use(expressEjsLayouts)
 //Imports de rutas
 const mainRouter = require("./src/routes/mainRouter.js")
 const productsRouter = require("./src/routes/productsRouter.js")
+const brandsRouter = require("./src/routes/brandsRouter.js")
 
 //Rutas
 app.use('/', mainRouter);
 app.use('/product', productsRouter);
+app.use('/brand', brandsRouter);
 
 app.use('', (req, res) => { res.render('pages/notfoundPage', { layout: 'layouts/mainLayout', data: { title: '404 - Pagina no encontrada' } }) })
 
