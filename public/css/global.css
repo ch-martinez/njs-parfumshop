@@ -1,6 +1,7 @@
 .main{
     width: 100%;
-    background: var(--bg-light);
+    max-width: 1440px;
+    margin-inline: auto;
 }
 
 /* Not found */
