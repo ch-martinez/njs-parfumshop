@@ -1,0 +1,87 @@
+<section class="main__header">
+    <div class="main__content">
+        <h2>Proveedores</h2>
+        <p>Administración de proveedores</p>
+    </div>
+</section>
+<section class="main__body">
+    <section>
+        <section class="wrapper">
+            <div class="panel-info">
+                <a href="/provider/all" class="panel-info__item panel-info__item--link">
+                    <iconify-icon icon="tabler:perfume"></iconify-icon>
+                    <div>
+                        <p class="panel-info__label">Total de proveedores</p>
+                        <p class="panel-info__value">
+                            50
+                        </p>
+                    </div>
+                </a>
+                
+                <div class="panel-info__btn-container">
+                    <button id="btn-filters" class="btn" type="button">
+                        <iconify-icon icon="tabler:filter"></iconify-icon>
+                        <span>Filtros</span>
+                    </button>
+                    <button id="btn-actions" class="btn" type="button">
+                        <iconify-icon icon="tabler:apps"></iconify-icon>
+                        <span>Acciones</span>
+                    </button>
+                    <a href="/provider/new" class="btn btn--green">
+                        <iconify-icon icon="tabler:circle-plus"></iconify-icon>
+                        <span>Nueva proveedor</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <section class="wrapper">
+        <div class="wrapper__body">
+            <table id="panel-table" class="table">
+                <thead class="table__head">
+                    <tr class="table__row-head">
+                        <th class="table__cell table__cell--fit"><input class="checkbox" type="checkbox" name="" id="checkbox-all"></th>
+                        <th class="table__cell">Nombre</th>
+                        <th class="table__cell">Teléfono</th>
+                        <th class="table__cell">Email</th>
+                        <th class="table__cell table__cell--fit">Estado</th>
+                        <th class="table__cell table__cell--fit"></th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <% data.providers.forEach((provider)=> { %>
+                        <tr class="table__row">
+                            <td class="table__cell table__cell--fit">
+                                <input class="checkbox action-checkbox" type="checkbox" name="<%= provider.provider_id %>">
+                            </td>
+                            <td class="table__cell">
+                                <a href="/provider/<%= provider.provider_id %>" class="link link--table">
+                                    <%= provider.provider_name %>
+                                </a>
+                            </td>
+                            <td class="table__cell">
+                                <%= provider.provider_tel %>
+                            </td>
+                            <td class="table__cell">
+                                <%= provider.provider_email %>
+                            </td>
+                            <td class="table__cell table__cell--fit">
+                                <% if (provider.provider_status==1) { %>
+                                    <span class="badge badge--green">activo</span>
+                                    <% } else { %>
+                                        <span class="badge badge--red">inactivo</span>
+                                        <% } %>
+                            </td>
+                            <td class="table__cell table__cell--fit">
+                                <a href="/provider/<%= provider.provider_id %>/edit" class="btn-table"><iconify-icon
+                                        icon="tabler:edit"></iconify-icon></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>

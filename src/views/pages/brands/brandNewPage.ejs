@@ -1,0 +1,83 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Nueva marca</h2>
+        <p>Complete toda la información a continuación</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+            <span>Cancelar</span>
+        </button>
+        <button class="btn btn--green" type="submit" form="form">
+            <iconify-icon icon="tabler:circle-check"></iconify-icon>
+            <span>Guardar</span>
+        </button>
+    </div>
+</section>
+
+<form id="form" class="main__body-column" method="POST" data-route="brand"  data-type="new">
+    <section class="main__body-column__left">
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <label for="brand_status" class="label label--checkbox">
+                    <input class="checkbox" type="checkbox" name="brand_status" id="brand_status" checked>
+                    <span>Activo</span>
+                </label>
+            </div>
+
+            <div class="wrapper__body">
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Nombre</span>
+                        <input class="input-text" type="text" name="brand_name" required>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ----------------------------------------------------------------------------  -->
+
+    <section class="main__body-column__right">
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Indicadores</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--auto">
+                    <label for="pf_new" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_new" id="pf_new" checked>
+                        <span>Nuevo</span>
+                    </label>
+                    <label for="pf_promoted" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_promoted" id="pf_promoted">
+                        <span>Promocional</span>
+                    </label>
+                    <label for="pf_featured" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_featured" id="pf_featured">
+                        <span>Destacado</span>
+                    </label>
+                    <label for="pf_topSeller" class="label label--checkbox">
+                        <input class="checkbox" type="checkbox" name="pf_topSeller" id="pf_topSeller">
+                        <span>Más vendido</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Imagenes</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__img-container">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="wrapper__footer">
+                <input type="file" accept="image/*" name="brand_img" id="brand_img" required>
+            </div>
+        </section>
+    </section>
+</form>
