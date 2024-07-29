@@ -23,52 +23,8 @@ function formatDateToArgentina(isoString) {
     return `${day}-${month}-${year}, ${hours}:${minutes}hs`;
 }
 
-const flagsToObject = (flags) => {
-    flagsStr = flags.toString()
-    let flagsObject = {
-        new: flagsStr[0] == 1 ? true : false,
-        promoted: flagsStr[1] == 1 ? true : false,
-        featured: flagsStr[2] == 1 ? true : false,
-        topSeller: flagsStr[3] == 1 ? true : false,
-    }
-    return flagsObject
-}
-
-function convertObjectToBinaryString(obj) {
-    // Ordenar las claves para garantizar el orden correcto
-    const keys = ['new', 'promoted', 'featured', 'topSeller'];
-    let binaryString = '';
-    
-    keys.forEach(key => {
-      binaryString += obj[key] ? '1' : '0';
-    });
-    
-    return(binaryString);
-  }
-
-const flagsToArray = (obj) => {
-    const keys = ['new', 'promoted', 'featured', 'topSeller'];
-    let binaryString = '';
-
-    keys.forEach(key => {
-      binaryString += obj[key] ? '1' : '0';
-    });
-
-    return(binaryString);
-}
-
-
-
-
 /* EXPORTS */
 const productFormFormater = (p) => {
-
-    const flags = {
-        new: p.flag_new == 'on' ? true : false,
-        promoted: p.flag_promoted == 'on' ? true : false,
-        featured: p.flag_featured == 'on' ? true : false,
-        topSeller: p.flag_topSeller == 'on' ? true : false,
-    }
 
     const productForm = {
         product_name: p.product_name,
@@ -87,7 +43,12 @@ const productFormFormater = (p) => {
         product_sku: Number(p.product_sku),
         product_stock: Number(p.product_stock),
         product_status: p.product_status == 'on' ? true : false,
-        product_flags: flagsToArray(flags),
+        product_flags: {
+            new: p.pf_new == 'on' ? true : false,
+            featured: p.pf_featured == 'on' ? true : false,
+            topSeller: p.pf_topseller == 'on' ? true : false,
+            promoted: p.pf_promoted == 'on' ? true : false
+        },
 
         brand_id: Number(p.brand_id),
         provider_id: Number(p.provider_id),
@@ -105,19 +66,24 @@ const productFormarter = (product) => {
         product_family: product.product_family,
         product_gender: product.product_gender,
         product_type: product.product_type,
-        product_img: product.product_img,
-
+        product_img: JSON.parse(product.product_img),
+        product_img_url: JSON.parse(product.product_img_url),
         product_price_list: product.product_price_list,
         product_price_sell: product.product_price_sell,
         product_discount: product.product_discount,
         product_price_discount: calcDiscount(product.product_price_sell, product.product_discount),
         payment_quantity: product.payment_quantity,
-        product_price_payments: (product.product_price_sell / product.payment_quantity).toFixed(),
+        product_price_payments: product.payment_quantity == 0 ? 0 : (product.product_price_sell / product.payment_quantity).toFixed(),
 
         product_sku: product.product_sku,
         product_stock: product.product_stock,
         product_status: product.product_status == 0 ? false : true,
-        product_flags: flagsToObject(product.product_flags),
+        product_flags: {
+            new: product.pf_new == 1 ? true : false,
+            featured: product.pf_featured == 1 ? true : false,
+            topSeller: product.pf_topseller == 1 ? true : false,
+            promoted: product.pf_promoted == 1 ? true : false
+        },
 
         provider_id: product.provider_id,
         provider_name: product.provider_name,
@@ -141,6 +107,53 @@ const productsListFormater = (productsList) => {
     return productsFormatedList
 }
 
+/* BRAND */
+const brandFormarter = (brand) => {
+    return {
+        brand_id: brand.brand_id,
+        brand_name: brand.brand_name,
+        brand_status: brand.brand_status == 1 ? true : false,
+        brand_img: brand.brand_img,
+        brand_created: formatDateToArgentina(brand.brand_created),
+        brand_updated: formatDateToArgentina(brand.brand_updated),
+/* 
+        brand_flags: {
+            new: brand.bf_new == 1 ? true : false,
+            featured: brand.bf_featured == 1 ? true : false,
+            topSeller: brand.bf_topseller == 1 ? true : false,
+            promoted: brand.bf_promoted == 1 ? true : false
+        } */
+    }
+}
+
+const brandFormPostFormater = (b) => {
+    const brandForm = {
+        brand_name: b.brand_name,
+        brand_status: b.brand_status == 'on' ? true : false,
+        brand_flags: {
+            new: b.bf_new == 'on' ? true : false,
+            featured: b.bf_featured == 'on' ? true : false,
+            topSeller: b.bf_topseller == 'on' ? true : false,
+            promoted: b.bf_promoted == 'on' ? true : false
+        }
+    }
+    return brandForm
+}
+/* Provider */
+
+const providerFormPostFormater = (provider) => {
+    const providerForm = {
+        provider_id: provider.provider_id,
+        provider_name: provider.provider_name,
+        provider_email: provider.provider_email,
+        provider_tel: provider.provider_tel,
+        provider_address: provider.provider_address,
+        provider_status: provider.provider_status == 'on' ? true : false,
+        provider_obs: provider.provider_obs,
+        provider_detail: provider.provider_detail
+    }
+    return providerForm
+}
 /* Address Formater */
 const addressFormarter = (addressList) => {
 
@@ -192,6 +205,9 @@ const paymentsFormarter = (paymentsList) => {
 module.exports = {
     productFormarter,
     productFormFormater,
+    brandFormarter,
+    brandFormPostFormater,
+    providerFormPostFormater,
     addressFormarter,
     productsListFormater
 }
