@@ -1,0 +1,72 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Nuevo proveedor</h2>
+        <p>Complete toda la información a continuación</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+            <span>Cancelar</span>
+        </button>
+        <button class="btn btn--green" type="submit" form="form">
+            <iconify-icon icon="tabler:circle-check"></iconify-icon>
+            <span>Guardar</span>
+        </button>
+    </div>
+</section>
+
+<form id="form" class="main__body-column" method="POST" data-route="provider"  data-type="new">
+    <section class="main__body-column__left">
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <label for="provider_status" class="label label--checkbox">
+                    <input class="checkbox" type="checkbox" name="provider_status" id="provider_status" checked>
+                    <span>Activo</span>
+                </label>
+            </div>
+
+            <div class="wrapper__body">
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Nombre *</span>
+                        <input class="input-text" type="text" name="provider_name" required>
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Detalle</span>
+                        <input class="input-text" type="text" name="provider_detail">
+                    </label>
+                </div>
+                <div class="wrapper__row wrapper__row--2">
+                    <label class="label">
+                        <span>Teléfono *</span>
+                        <input class="input-text" type="tel" name="provider_tel" required>
+                    </label>
+                    <label class="label">
+                        <span>Email*</span>
+                        <input class="input-text" type="email" name="provider_email" required>
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Dirección *</span>
+                        <input class="input-text" type="text" name="provider_address" required>
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Observaciones</span>
+                        <input class="input-text" type="text" name="provider_obs">
+                    </label>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ----------------------------------------------------------------------------  -->
+
+    <section class="main__body-column__right"></section>
+</form>
