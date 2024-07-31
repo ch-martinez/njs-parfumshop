@@ -10,7 +10,7 @@ const dataTable = new simpleDatatables.DataTable("#panel-table", {
         pageTitle: "Pagina {page}",
         perPage: "registros por página",
         noRows: "Sin registros",
-        info: "{rows} productos",
+        info: "{rows} registos en total",
         noResults: "No hay resultados para tu busqueda",
     },
     classes: {
