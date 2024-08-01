@@ -53,7 +53,7 @@
                         <div class="wrapper__item">
                             <p class="wrapper__item__key">Marca</p>
                             <p class="wrapper__item__value">
-                                <%= data.product.brand_name %>
+                                <a href="/brand/<%= data.product.brand_id %>" class="link"><%= data.product.brand_name %></a>
                             </p>
                         </div>
                     </div>
@@ -117,8 +117,8 @@
                         </div>
                         <div class="wrapper__item">
                             <p class="wrapper__item__key">Proveedor</p>
-                            <p class="wrapper__item__value" data-="">
-                                <%= data.product.provider_name %>
+                            <p class="wrapper__item__value">
+                                <a href="/provider/<%= data.product.provider_id %>" class="link"><%= data.product.provider_name %></a>
                             </p>
                         </div>
 
@@ -209,7 +209,7 @@
             </div>
             <div class="wrapper__body">
                 <div class="wrapper__img-container">
-                    <img src="<%= data.product.product_img %>" alt="<%= data.product.product_name %>">
+                    <img src="<%= data.product.product_img_url[0] %>" alt="<%= data.product.product_name %>">
                     </p>
                 </div>
             </div>
