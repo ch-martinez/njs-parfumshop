@@ -10,16 +10,14 @@
 /* Componentes */
 @import url('/css/components/badge.css');
 @import url('/css/components/wrapper.css');
+@import url('/css/components/dropdown.css');
 
 /* libs */
 @import url('/css/libs/swal.css');
 @import url('/css/libs/simpledatatables.css');
 
 /* Partials */
-@import url('/css/partials/header.css');
-@import url('/css/partials/footer.css');
 @import url('/css/partials/panel_aside.css'); 
-
 
 /* Paginas */
 @import url('/css/pages/main.css');
