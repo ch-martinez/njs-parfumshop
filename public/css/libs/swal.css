@@ -1,0 +1,54 @@
+.sa-container {
+    width: 32em;
+    max-width: 100%;
+    padding: 0 0 1.25em;
+    position: relative;
+    display: none;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 100%);
+    background: #fff;
+    color: var(--zinc-700);
+    font-family: inherit;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--md) !important;
+}
+
+.sa-title{
+    font-size: var(--lg) !important;
+}
+
+.sa-html-container{
+
+}
+
+.sa-btn{
+    opacity: 0.6;
+}
+
+    .sa-btn:hover{
+        opacity: 1;
+    }
+
+    .sa-btn:focus-visible, .sa-btn:active {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .sa-btn--danger{
+        background: red !important;
+        color: #FFF;
+    }
+
+    .sa-btn--cancel{
+        background: var(--zinc-500) !important;
+    }
+
+/* .sa-backdrop{
+    
+        rgba(0,0,0,0.5)
+        -webkit-filter: blur(2px);
+    		opacity: 0.9;
+        color: #fff
+      ` */
