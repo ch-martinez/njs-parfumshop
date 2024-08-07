@@ -94,6 +94,11 @@
     text-wrap: nowrap;
 }
 
+    .label--filter{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
 /* Buttons */
 
 .btn{

@@ -2,25 +2,24 @@ const express = require('express')
 const router = express.Router()
 const controller = require('../controllers/productsController')
 
-/* Todos los productos */
+// Todos los productos
 router.get('/all', controller.productsView)
 
-/* Nuevo producto */
+// Nuevo producto
 router.get('/new', controller.productNewView)
 router.post('/new', controller.productNewPost)
 
-/* Editar producto */
+// Editar producto
 router.get('/:id/edit', controller.productEditView)
 router.post('/:id/edit', controller.productEditPost)
 
-/* Eliminar producto */
+// Eliminar producto
 router.post('/:id/delete', controller.productDeletePost)
 
-/* Detalle del producto */
-router.get('/:id', controller.productDetailView)
-
-/* Cambiar el estado del producto */
+// Cambiar el estado del producto
 router.post('/:id/status/:status', controller.productStatusPost)
 
+// Detalle del producto
+router.get('/:id', controller.productDetailView)
 
 module.exports = router

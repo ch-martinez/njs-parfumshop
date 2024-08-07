@@ -23,6 +23,19 @@ function formatDateToArgentina(isoString) {
     return `${day}-${month}-${year}, ${hours}:${minutes}hs`;
 }
 
+const datetimeFormarter = (datetime) => {
+    console.log(datetime)
+    const padZero = (value) => value.toString().padStart(2, '0');
+
+    const year = datetime.getFullYear();
+    const month = padZero(datetime.getMonth() + 1); // Los meses van de 0-11
+    const day = padZero(datetime.getDate());
+    const hours = padZero(datetime.getHours());
+    const minutes = padZero(datetime.getMinutes());
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
 /* EXPORTS */
 const productFormFormater = (p) => {
 
@@ -40,7 +53,7 @@ const productFormFormater = (p) => {
         product_discount: Number(p.product_discount),
         payment_id: Number(p.payment_id),
 
-        product_sku: Number(p.product_sku),
+        product_sku: p.product_sku,
         product_stock: Number(p.product_stock),
         product_status: p.product_status == 'on' ? true : false,
         product_flags: {
@@ -202,6 +215,44 @@ const paymentsFormarter = (paymentsList) => {
     return paymentsFormatedList
 }
 
+const statusCode = ["Creado","Programado","Activo","Finalizado","Suspendido"]
+
+/* Coupons */
+const couponFormarter = (coupon) => {
+    const couponFormated = {
+        coupon_id: coupon.coupon_id,
+        coupon_title: coupon.coupon_title,
+        coupon_description: coupon.coupon_description,
+        coupon_obs: coupon.coupon_obs,
+        coupon_code: coupon.coupon_code,
+        coupon_discount: coupon.coupon_discount,
+        coupon_usage: coupon.coupon_usage,
+        coupon_start: datetimeFormarter(coupon.coupon_start),
+        coupon_end: datetimeFormarter(coupon.coupon_end),
+        coupon_statusCode: coupon.coupon_statusCode,
+        coupon_statusName: statusCode[coupon.coupon_statusCode],
+
+        coupon_status: coupon.coupon_status,
+        coupon_created: formatDateToArgentina(coupon.coupon_created),
+        coupon_updated: formatDateToArgentina(coupon.coupon_updated),
+    }
+    return couponFormated
+}
+
+const couponFormarterPost = (coupon) => {
+    return {
+        coupon_title: coupon.coupon_title,
+        coupon_description: coupon.coupon_description,
+        coupon_obs: coupon.coupon_obs,
+        coupon_code: coupon.coupon_code,
+        coupon_discount: coupon.coupon_discount,
+        coupon_start: coupon.coupon_start,
+        coupon_end: coupon.coupon_end,
+        coupon_statusCode: coupon.coupon_statusCode,
+        coupon_status: coupon.coupon_status == 'on' ? true : false,
+    }
+}
+
 module.exports = {
     productFormarter,
     productFormFormater,
@@ -209,5 +260,11 @@ module.exports = {
     brandFormPostFormater,
     providerFormPostFormater,
     addressFormarter,
-    productsListFormater
+    productsListFormater,
+    couponFormarter,
+    couponFormarterPost,
+
+
+
+    datetimeFormarter
 }
