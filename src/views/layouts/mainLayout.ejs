@@ -4,21 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/imports.css">
-    <title>
-        <%= data.title %>
-    </title>
+    <title><%= data.title %></title>
 </head>
 
 <body>
-    <%- include('../shared/partials/header.ejs') %>
-    <%- body %>
-    <%- include('../shared/partials/footer.ejs') %>
-    <script src="/scripts/quantity.js"></script>
+    <%- include('../components/partials/panel_aside.ejs') %>
+    <main class="main">
+        <%- body %>
+    </main>
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- Simple datatables -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+    <script src="/scripts/libs/simpledatatables.js"></script>
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/scripts/libs/swal.js"></script>
+    <!-- Scripts -->
+    <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/API/api.js"></script>
     <script src="/scripts/dropdown.js"></script>
-    <script src="/scripts/cart.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><!-- Iconify -->
 </body>
 
 </html>

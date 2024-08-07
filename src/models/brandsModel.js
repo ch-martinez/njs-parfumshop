@@ -8,7 +8,9 @@ const getAllBrandsFromDB = async () => {
             b.brand_name,
             b.brand_status
         FROM 
-            brands b`;
+            brands b
+        WHERE b.brand_deleted = 0
+        ORDER BY brand_name ASC`;
     try {
         const [rows] = await connection.query(query);
         return rows;
@@ -19,7 +21,7 @@ const getAllBrandsFromDB = async () => {
         // Liberar la conexión
         if (connection) connection.release();
     }
-};
+}
 
 const getBrandFromDB = async (brand_id) => {
     try {
@@ -80,6 +82,41 @@ const updateBrandInDB = async (brand) => {
     }
 }
 
+const logicDeleteBrandInDB = async (id) => {
+    const connection = await pool.getConnection()
+    try {
+        //Iniciar transacción
+        await connection.beginTransaction();
+
+        const queryBrand = `
+            UPDATE brands
+            SET 
+                brand_deleted = 1
+            WHERE brand_id = ?;`
+
+        await connection.query(queryBrand, id);
+
+        const queryProducts = `
+            UPDATE products
+            SET 
+                product_deleted = 1
+            WHERE brand_id = ?;`
+
+        await connection.query(queryProducts, id);
+
+        //Finalizar transacción
+        await connection.commit();
+        return true;
+    } catch (error) {
+        await connection.rollback();
+        console.error('Error al eliminar el brand y sus productos:', error);
+        return false;
+    } finally {
+        // Liberar la conexión
+        if (connection) connection.release();
+    }
+}
+
 const updateBrandStatusInDB = async (id, status) => {
     const connection = await pool.getConnection()
     const query = `
@@ -121,5 +158,6 @@ module.exports = {
     getBrandFromDB,
     newBrandInDB,
     updateBrandInDB,
+    logicDeleteBrandInDB,
     updateBrandStatusInDB
 }

@@ -4,13 +4,12 @@ const getAllPaymentsFromDB = async () => {
     try {
         const [rows] = await pool.query(`
             SELECT 
-                pm.pm_id,
-                pm.pm_sku,
-                pm.pm_name,
-                pm.pm_description,
-                pm.pm_status
+                p.payment_id,
+                p.payment_quantity,
+                p.payment_interest,
+                p.payment_status
             FROM 
-                payment_methods pm`);
+                payments p`);
         return rows;
     } catch (error) {
         console.error('Error al obtener clientes:', error);

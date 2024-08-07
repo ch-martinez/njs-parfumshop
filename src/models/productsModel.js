@@ -80,7 +80,12 @@ const queryGenerator = (queryIn, filters) => {
         params.push(filters.brand_id)
     }
 
-    query += `;`
+    if (filters.provider_id) {
+        query += ` AND p.provider_id = ?`
+        params.push(filters.provider_id)
+    }
+
+    query += ` ORDER BY product_name ASC;`
 
     return { query, params }
 }
@@ -329,7 +334,7 @@ const updateProductStatusInDB = async (id, status) => {
     }
 }
 
-/* Contador segun filtros indicados */
+// Contador segun filtros indicados
 const counterProductsInDB = async (filters) => {
     const connection = await pool.getConnection()
     const queryInitial = `
@@ -361,6 +366,5 @@ module.exports = {
     updateProductInDB,
     logicDeleteProductInDB,
     updateProductStatusInDB,
-
     counterProductsInDB
 }

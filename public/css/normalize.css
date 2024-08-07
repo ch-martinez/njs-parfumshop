@@ -11,22 +11,12 @@ html {
     font-size: 62.5%;
 }
 
-/* Con esto se evita que haya contenido vacío cuando se achica el zoom del 
-navegador */
 body {
-    height: 100vh;
-/*     display: flex;
-    flex-direction: column; */
+    min-height: 100vh;
+    display: flex;
     background: var(--bg-light);
-    color: var(--zinc-900);
-    -webkit-font-smoothing: antialiased;
     font-size: var(--md);
-}
-
-main{
-    /* flex-grow: 1; */
-    min-height: calc(100vh - 44px);
-    background-color: aliceblue;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -35,7 +25,8 @@ a {
     text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
     list-style-type: none;
 }
 
@@ -47,5 +38,8 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    }
-input[type=number] { -moz-appearance:textfield; }
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
