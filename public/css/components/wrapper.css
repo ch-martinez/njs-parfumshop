@@ -1,0 +1,234 @@
+/* Wrapper */
+.wrapper {
+    background: #FFF;
+    border: 1px solid var(--zinc-200);
+    border-radius: var(--radius-sm);
+    /* box-shadow: var(--shadow-light); */
+    overflow: hidden;
+}
+
+.wrapper__header {
+    padding: var(--sp-12) var(--sp-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+    border-bottom: 1px solid var(--zinc-200);
+}
+
+    .wrapper__title {
+    }
+
+    .wrapper__desc {
+        font-size: var(--sm);
+        color: var(--zinc-600);
+        font-weight: var(--medium);
+    }
+
+    .wrapper__header--with-badge{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .wrapper__btn-container{
+        display: flex;
+        gap: var(--sp-8);
+        justify-content: flex-end;
+    }
+
+.wrapper__subtitle {
+    font-weight: var(--bold);
+    font-size: var(--lg);
+}
+
+.wrapper__body {
+    padding: var(--sp-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-16);
+}
+
+    .wrapper__group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-16);
+    }
+
+.wrapper__row {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    gap: var(--sp-16);
+}
+
+    .wrapper__row--2{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .wrapper__row--3{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .wrapper__row--4{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .wrapper__row--2-1{
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .wrapper__row--auto{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /* .wrapper__row--status{
+        gap: var(--sp-8);
+        justify-items: center;
+    } */
+
+    .wrapper__img-container{
+        margin-inline: auto;
+        max-width: 400px;
+    }
+
+.wrapper__item{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper__item__key{
+    font-weight: var(--semibold);
+}
+
+.wrapper__item__value{
+
+}
+
+.wrapper__footer{
+    padding: var(--sp-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+    border-top: 1px solid var(--zinc-200);
+}
+
+/* Modificadores */
+.wrapper--panel {
+    background: #FFF;
+    border: 1px solid var(--zinc-200);
+    border-radius: var(--radius-sm);
+}
+
+.wrapper--delete{
+    min-width: 300px;
+    width: fit-content;
+    border: 2px solid rgb(255, 144, 144);
+}
+
+/* Wrapper Article */
+.w-article {
+    padding: var(--sp-16);
+    border: 1px solid var(--zinc-200);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-02);
+}
+
+    .w-article:hover {
+        border-color: var(--primary-400);
+    }
+
+    .w-article--no-hover:hover {
+        width: 100%;
+        border: 1px solid var(--zinc-200);
+    }
+
+.w-article__inputs-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sp-16);
+}
+
+.w-article__checkboxs-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--sp-16);
+}
+
+.w-article__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    gap: var(--sp-8);
+}
+
+.w-article__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+}
+
+.w-article__btn-container {
+    display: flex;
+    gap: var(--sp-8);
+}
+
+.w-article__dropdown-link {
+    display: flex;
+    gap: var(--sp-12);
+    color: var(--primary-500);
+    font-size: var(--md);
+    font-weight: var(--bold);
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
+
+.w-article__dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-03);
+}
+
+.w-article__dropdown-body{
+    border-top: 1px solid var(--zinc-200);
+    padding-top: var(--sp-16);
+    margin-top: var(--sp-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-16);
+}
+
+    .dd--active {
+        max-height: 900px;
+    }
+
+/* Wrapper article option */
+.w-article__option{
+    display: flex;
+    gap: var(--sp-12);
+    cursor: pointer;
+}
+
+.w-article__option input{
+}
+
+.w-article__option-description h5{
+    color: var(--primary-500);
+    font-size: var(--md);
+    letter-spacing: 0.3px;
+}
+
+    .w-article__option-description h5 span{
+        color: var(--primary-500);
+        font-weight: var(--regular);
+        font-size: var(--sm);
+    }
+
+.w-article__option-description p{
+    font-size: var(--sm);
+    color: var(--zinc-600);
+}
