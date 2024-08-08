@@ -1,0 +1,83 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Nuevo cupon promocional</h2>
+        <p>Complete toda la información a continuación</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+            <span>Cancelar</span>
+        </button>
+        <button class="btn btn--green" type="submit" form="form">
+            <iconify-icon icon="tabler:circle-check"></iconify-icon>
+            <span>Guardar</span>
+        </button>
+    </div>
+</section>
+
+<form id="form" class="main__body-column" method="POST" data-route="coupon"  data-type="new">
+    <section class="main__body-column__left">
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <label for="coupon_status" class="label label--checkbox">
+                    <input class="checkbox" type="checkbox" name="coupon_status" id="coupon_status" checked>
+                    <span>Activo</span>
+                </label>
+            </div>
+
+            <div class="wrapper__body">
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Titulo*</span>
+                        <input class="input-text" type="text" name="coupon_title" required>
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Descripcion*</span>
+                        <input class="input-text" type="text" name="coupon_description" required>
+                    </label>
+                </div>
+                <div class="wrapper__row wrapper__row--2">
+                    <label class="label">
+                        <span>Codigo*</span>
+                        <input class="input-text" type="text" name="coupon_code" required>
+                    </label>
+                    <label class="label">
+                        <span>Descuento*</span>
+                        <input class="input-text" type="number" name="coupon_discount" min="0" max="100" value="0" required>
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Observaciones</span>
+                        <input class="input-text" type="text" name="coupon_obs">
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Programación</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Inicia el</p>
+                        <input class="input-text" type="datetime-local" min="<%= data.actualDatetime %>" name="coupon_start" required>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Finaliza el</p>
+                        <input class="input-text" type="datetime-local" min="<%= data.actualDatetime %>" name="coupon_end" required>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ----------------------------------------------------------------------------  -->
+
+    <section class="main__body-column__right"></section>
+</form>

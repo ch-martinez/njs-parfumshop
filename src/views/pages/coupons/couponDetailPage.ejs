@@ -1,0 +1,148 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Detalle del cupón <span class="header__id">(id: <%= data.coupon.coupon_id %>)</span></h2>
+        <p>Se muestra todo el detalle del cupón de descuento</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:arrow-back-up"></iconify-icon>
+            <span>Volver</span>
+        </button>
+        <% if (data.coupon.coupon_status == 1) {%>
+            <button class="btn btn--red" type="button" id="btn-status" data-id="<%= data.coupon.coupon_id %>" data-status="0" data-item="coupon">
+                <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+                <span>Desactivar</span>
+            </button>
+        <%}else{%>
+            <button class="btn btn--green" type="button" id="btn-status" data-id="<%= data.coupon.coupon_id %>" data-status="1" data-item="coupon">
+                <iconify-icon icon="tabler:circle-check"></iconify-icon>
+                <span>Activar</span>
+            </button>
+        <%}%>
+        <a href="/coupon/<%= data.coupon.coupon_id %>/edit" class="btn">
+            <iconify-icon icon="tabler:edit"></iconify-icon>
+            <span>Editar</span>
+        </a>
+    </div>
+
+</section>
+<section class="main__body-column">
+
+    <section class="main__body-column__left">
+
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <% if (data.coupon.coupon_status == 1) {%>
+                    <span class="badge badge--green">activo</span>
+                <%}else{%>
+                    <span class="badge badge--red">inactivo</span>
+                <%}%>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Título</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.coupon.coupon_title %>">
+                            <%= data.coupon.coupon_title %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Descripción</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_description %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Codigo</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_code %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Cantidad de usos</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_usage %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Descuento</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_discount %>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wrapper__row">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Observaciones</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_obs %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Programación</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Estado</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_statusCode %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Inicia el</p>
+                        <p class="wrapper__item__value">
+                            <%= data.coupon.coupon_start %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Finaliza el</p>
+                        <p class="wrapper__item__value" data-="">
+                            <%= data.coupon.coupon_end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Ordenes</h2>
+            </div>
+            <div class="wrapper__body">
+                
+            </div>
+        </section>
+    </section>
+    <!-- ----------------------------------------------------------------------------  -->
+    <section class="main__body-column__right">
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Creado</p>
+                        <p class="wrapper__item__value"><%= data.coupon.coupon_created %></p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Modificado</p>
+                        <p class="wrapper__item__value"><%= data.coupon.coupon_updated %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+</section>
