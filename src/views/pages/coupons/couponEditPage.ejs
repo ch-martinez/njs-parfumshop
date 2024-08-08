@@ -1,0 +1,108 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Editar cupon promocional</h2>
+        <p>Complete toda la información a continuación</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+            <span>Cancelar</span>
+        </button>
+        <button class="btn btn--green" type="submit" form="form">
+            <iconify-icon icon="tabler:circle-check"></iconify-icon>
+            <span>Guardar</span>
+        </button>
+    </div>
+</section>
+
+<form id="form" class="main__body-column" method="POST" data-route="coupon"  data-type="edit" data-id="<%= data.coupon.coupon_id %>">
+    <section class="main__body-column__left">
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <label for="coupon_status" class="label label--checkbox">
+                    <input class="checkbox" type="checkbox" name="coupon_status" id="coupon_status" <%= data.coupon.coupon_status == 1 ? 'checked' : '' %>>
+                    <span>Activo</span>
+                </label>
+            </div>
+
+            <div class="wrapper__body">
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Titulo</span>
+                        <input class="input-text" type="text" name="coupon_title" value="<%= data.coupon.coupon_title %>">
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Descripcion</span>
+                        <input class="input-text" type="text" name="coupon_description" value="<%= data.coupon.coupon_description %>">
+                    </label>
+                </div>
+                <div class="wrapper__row wrapper__row--2">
+                    <label class="label">
+                        <span>Codigo</span>
+                        <input class="input-text" type="text" name="coupon_code" value="<%= data.coupon.coupon_code %>">
+                    </label>
+                    <label class="label">
+                        <span>Descuento</span>
+                        <input class="input-text" type="number" name="coupon_discount" value="<%= data.coupon.coupon_discount %>">
+                    </label>
+                </div>
+                <div class="wrapper__row">
+                    <label class="label">
+                        <span>Observaciones</span>
+                        <input class="input-text" type="text" name="coupon_obs" value="<%= data.coupon.coupon_obs %>">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Programación</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--3">
+                    <label class="label">
+                        <span>Estado</span>
+                        <select name="coupon_statusCode" class="input-select">
+                            <option value="0" <%= data.coupon.coupon_statusCode == 0 ? 'selected' : '' %> >Creado</option>
+                            <option value="1" <%= data.coupon.coupon_statusCode == 1 ? 'selected' : '' %> >Programado</option>
+                            <option value="2" <%= data.coupon.coupon_statusCode == 2 ? 'selected' : '' %> >Activo</option>
+                            <option value="3" <%= data.coupon.coupon_statusCode == 3 ? 'selected' : '' %> >Finalizado</option>
+                            <option value="4" <%= data.coupon.coupon_statusCode == 4 ? 'selected' : '' %> >Suspendido</option>
+                        </select>
+                    </label>
+
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Inicia el</p>
+                        <input class="input-text" type="datetime-local"name="coupon_start" value="<%= data.coupon.coupon_start %>" min="<%= data.actualDatetime %>" required>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Finaliza el</p>
+                        <input class="input-text" type="datetime-local" name="coupon_start" value="<%= data.coupon.coupon_end %>" min="<%= data.actualDatetime %>" required>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <section class="wrapper wrapper--delete">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Eliminar</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__group">
+                    <p>Elimina definitivamente el cupon promocional. Esta acción no se puede deshacer</p>
+                    <button id="btn-delete" class="btn btn--red"  type="button" data-id="<%= data.coupon.coupon_id %>" data-route="coupon">Eliminar</button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ----------------------------------------------------------------------------  -->
+
+    <section class="main__body-column__right"></section>
+</form>
