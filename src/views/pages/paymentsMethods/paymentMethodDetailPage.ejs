@@ -1,0 +1,139 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2>Detalle del metodo de pago <span class="header__id">(id: <%= data.pm.pm_id %>)</span></h2>
+        <p>Se muestra todo el detalle del metodo de pago</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:arrow-back-up"></iconify-icon>
+            <span>Volver</span>
+        </button>
+        <% if (data.pm.pm_status == 1) {%>
+            <button class="btn btn--red" type="button" id="btn-status" data-id="<%= data.pm.pm_id %>" data-status="0" data-item="pm">
+                <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+                <span>Desactivar</span>
+            </button>
+        <%}else{%>
+            <button class="btn btn--green" type="button" id="btn-status" data-id="<%= data.pm.pm_id %>" data-status="1" data-item="pm">
+                <iconify-icon icon="tabler:circle-check"></iconify-icon>
+                <span>Activar</span>
+            </button>
+        <%}%>
+        <a href="/pm/<%= data.pm.pm_id %>/edit" class="btn">
+            <iconify-icon icon="tabler:edit"></iconify-icon>
+            <span>Editar</span>
+        </a>
+    </div>
+
+</section>
+<section class="main__body-column">
+
+    <section class="main__body-column__left">
+
+        <section class="wrapper">
+            <div class="wrapper__header wrapper__header--with-badge">
+                <h2 class="wrapper__subtitle">General</h2>
+                <% if (data.pm.pm_status == 1) {%>
+                    <span class="badge badge--green">activo</span>
+                <%}else{%>
+                    <span class="badge badge--red">inactivo</span>
+                <%}%>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Metodo</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.pm.pm_name %>">
+                            <%= data.pm.pm_name %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">SKU</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.pm.pm_name %>">
+                            <%= data.pm.pm_sku %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Interés</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.pm.pm_name %>">
+                            <%= data.pm.pm_interest %>%
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Descripción</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.pm.pm_name %>">
+                            <%= data.pm.pm_description %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">Cuotas</h2>
+            </div>
+            <div class="wrapper__body">
+                <table id="panel-table" class="table">
+                    <thead class="table__head">
+                        <tr class="table__row-head">
+                            <th class="table__cell"><input class="checkbox" type="checkbox" name="" id="checkbox-all"></th>
+                            <th class="table__cell">Cuotas</th>
+                            <th class="table__cell">Interés</th>
+                            <th class="table__cell">Estado</th>
+                            <th class="table__cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table__body">
+                        <% data.payments.data.forEach((payment)=> { %>
+                            <tr class="table__row">
+                                <td class="table__cell">
+                                    <input class="checkbox action-checkbox" type="checkbox" name="<%= payment.payment_id %>">
+                                </td>
+                                <td class="table__cell">
+                                    <a href="/payment/<%= payment.payment_id %>" class="link link--table">
+                                        <%= payment.payment_quantity %> Cuotas
+                                    </a>
+                                </td>
+                                <td class="table__cell">
+                                    <%= payment.payment_interest %>%
+                                </td>
+                                <td class="table__cell">
+                                    <% if (payment.payment_status==true) { %>
+                                        <span class="badge badge--green">activo</span>
+                                    <% } else { %>
+                                        <span class="badge badge--red">inactivo</span>
+                                    <% } %>
+                                </td>
+                                <td class="table__cell">
+                                    <a href="/payment/<%= payment.payment_id %>/edit" class="btn-table"><iconify-icon icon="tabler:edit"></iconify-icon></a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+    <!-- ----------------------------------------------------------------------------  -->
+    <section class="main__body-column__right">
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Creado</p>
+                        <p class="wrapper__item__value"><%= data.pm.pm_created %></p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Modificado</p>
+                        <p class="wrapper__item__value"><%= data.pm.pm_updated %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
