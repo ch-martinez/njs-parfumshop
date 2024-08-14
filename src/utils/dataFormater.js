@@ -69,7 +69,6 @@ const productFormFormater = (p) => {
     return productForm
 }
 
-
 const productFormarter = (product) => {
     return {
         product_id: product.product_id,
@@ -153,7 +152,6 @@ const brandFormPostFormater = (b) => {
     return brandForm
 }
 /* Provider */
-
 const providerFormPostFormater = (provider) => {
     const providerForm = {
         provider_id: provider.provider_id,
@@ -167,36 +165,64 @@ const providerFormPostFormater = (provider) => {
     }
     return providerForm
 }
-/* Address Formater */
-const addressFormarter = (addressList) => {
 
+const addressFormarter = (address) => {
     const fullAddress = (address) => {
         if (address.caddress_apartment) {
-            return `${address.caddress_street} ${address.caddress_number}, Piso: ${address.caddress_floor}, Dpto: ${address.caddress_apartment}`
+            return `${address.caddress_street} ${address.caddress_number} - ${address.caddress_floor}, ${address.caddress_apartment}°`
         } else {
             return `${address.caddress_street} ${address.caddress_number}`
         }
     }
+    return {
+        caddress_id: address.caddress_id,
+        caddress_street: address.caddress_street,
+        caddress_number: address.caddress_number,
+        caddress_floor: address.caddress_floor || '-',
+        caddress_apartment: address.caddress_apartment || '-',
+        caddress_full: fullAddress(address),
+        caddress_city: address.caddress_city,
+        caddress_state: address.caddress_state,
+        caddress_zip: address.caddress_zip,
+        caddress_obs: address.caddress_obs || '-',
+        caddress_created: formatDateToArgentina(address.caddress_created),
+        caddress_updated: formatDateToArgentina(address.caddress_updated)
+    }
+}
 
+/* Address Formater */
+const addressListFormarter = (addressList) => {
     let addressFormatedList = []
 
-    addressList.forEach(address => {
-        const addressFormated = {
-            caddress_id: address.caddress_id,
-            caddress_street: address.caddress_street,
-            caddress_number: address.caddress_number,
-            caddress_floor: address.caddress_floor,
-            caddress_apartment: address.caddress_apartment,
-            caddress_full: fullAddress(address),
-            caddress_city: address.caddress_city,
-            caddress_state: address.caddress_state,
-            caddress_zip: address.caddress_zip,
-            caddress_obs: address.caddress_obs,
-            caddress_create_time: address.caddress_create_time
-        }
-        addressFormatedList.push(addressFormated)
-    })
+    addressList.forEach(address => addressFormatedList.push(addressFormarter(address)))
+
     return addressFormatedList
+}
+
+const customerFormater = (customer) => {
+    return {
+        customer_id: customer.customer_id,
+        customer_name: customer.customer_name,
+        customer_lastname: customer.customer_lastname,
+        customer_dni: customer.customer_dni,
+        customer_email: customer.customer_email,
+        customer_tel: customer.customer_tel,
+        customer_obs: customer.customer_obs,
+        customer_created: formatDateToArgentina(customer.customer_created),
+        customer_updated: formatDateToArgentina(customer.customer_updated),
+        customer_status: customer.customer_status == 0 ? false : true
+    }
+}
+
+const customerPostFormater = (customer) => {
+    return {
+        customer_name: customer.customer_name,
+        customer_lastname: customer.customer_lastname,
+        customer_dni: customer.customer_dni,
+        customer_email: customer.customer_email,
+        customer_tel: customer.customer_tel,
+        customer_obs: customer.customer_obs,
+    }
 }
 
 const paymentsFormarter = (paymentsList) => {
@@ -260,6 +286,9 @@ module.exports = {
     brandFormPostFormater,
     providerFormPostFormater,
     addressFormarter,
+    addressListFormarter,
+    customerFormater,
+    customerPostFormater,
     productsListFormater,
     couponFormarter,
     couponFormarterPost,
