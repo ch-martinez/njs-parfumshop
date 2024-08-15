@@ -32,7 +32,7 @@ const brandNewPost = async (req, res) => {
 
 // VIEW: Editar marca
 const brandEditView = async (req, res) => {
-    const brand = await brandsModel.getBrandFromDB(req.params.id)
+    const brand = dataFormater.brandFormarter(await brandsModel.getBrandFromDB(req.params.id))
     const data = {
         title: 'Marcas - administración',
         brand: brand
@@ -42,9 +42,10 @@ const brandEditView = async (req, res) => {
 
 // POST: Editar marca
 const brandEditPost = async (req, res) => {
-    const response = await brandsModel.updateBrandInDB(dataFormater.brandFormPostFormater(req.body))
+    const id = req.params.id
+    const response = await brandsModel.updateBrandInDB(id, dataFormater.brandFormPostFormater(req.body))
     if (response) {
-        res.status(200).json({success: true, message: 'Marca actualizada', id: response.brand_id})
+        res.status(200).json({success: true, message: 'Marca actualizada', id: id})
     }else{
         res.status(500).send('Error al actualizar la marca')
     }
