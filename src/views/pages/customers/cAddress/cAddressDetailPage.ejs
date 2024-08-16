@@ -1,0 +1,98 @@
+<section class="main__header">
+    <div class="header__content">
+        <h2><%= data.customer.customer_name %> <%= data.customer.customer_lastname %> > Direccion</h2>
+        <p>Detalle de direccion del cliente</p>
+    </div>
+
+    <div class="header__btn-container">
+        <button class="btn btn--gray" id="btnBack">
+            <iconify-icon icon="tabler:arrow-back-up"></iconify-icon>
+            <span>Regresar al cliente</span>
+        </button>
+        <a href="/caddress/<%= data.caddress.caddress_id %>/edit" class="btn">
+            <iconify-icon icon="tabler:edit"></iconify-icon>
+            <span>Editar</span>
+        </a>
+    </div>
+
+</section>
+<section class="main__body-column">
+
+    <section class="main__body-column__left">
+
+        <section class="wrapper">
+            <div class="wrapper__header">
+                <h2 class="wrapper__subtitle">General</h2>
+            </div>
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Direccion</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_street %> <%= data.caddress.caddress_number %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Piso</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_floor %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Departamento</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_apartment %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row wrapper__row--3">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Ciudad</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_city %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Provincia</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_state %>
+                        </p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Codigo Postal</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_zip %>
+                        </p>
+                    </div>
+                </div>
+                <div class="wrapper__row">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Observacion del cliente</p>
+                        <p class="wrapper__item__value" id="name" data-name="<%= data.caddress.caddress_street %>">
+                            <%= data.caddress.caddress_obs %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+    <!-- ----------------------------------------------------------------------------  -->
+    <section class="main__body-column__right">
+
+        <section class="wrapper">
+            <div class="wrapper__body">
+                <div class="wrapper__row wrapper__row--2">
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Creado</p>
+                        <p class="wrapper__item__value"><%= data.caddress.caddress_created %></p>
+                    </div>
+                    <div class="wrapper__item">
+                        <p class="wrapper__item__key">Modificado</p>
+                        <p class="wrapper__item__value"><%= data.caddress.caddress_updated %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
