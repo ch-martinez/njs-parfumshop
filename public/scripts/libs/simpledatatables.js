@@ -1,4 +1,4 @@
-const dataTable = new simpleDatatables.DataTable("#panel-table", {
+const dataTableConfig = {
 	locale: 'es-ES',
     searchable: true,
 	fixedHeight: true,
@@ -27,4 +27,7 @@ const dataTable = new simpleDatatables.DataTable("#panel-table", {
             filter: ["ACTIVO", "INACTIVO"],
         }, */
     ],
-})
+}
+
+const dataTable = new simpleDatatables.DataTable("#panel-table", dataTableConfig)
+const dataTable2 = new simpleDatatables.DataTable("#panel-table-2", dataTableConfig)
