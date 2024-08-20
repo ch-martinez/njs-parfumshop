@@ -1,0 +1,83 @@
+<section class="main__header">
+    <div class="main__content">
+        <h2>Cupones de descuento</h2>
+        <p>Administración de cupones de descuento</p>
+    </div>
+</section>
+<section class="main__body">
+    <section>
+        <section class="wrapper">
+            <div class="panel-info">
+
+                <div class="panel-info__btn-container">
+                    <button id="btn-filters" class="btn" type="button">
+                        <iconify-icon icon="tabler:filter"></iconify-icon>
+                        <span>Filtros</span>
+                    </button>
+                    <button id="btn-actions" class="btn" type="button">
+                        <iconify-icon icon="tabler:apps"></iconify-icon>
+                        <span>Acciones</span>
+                    </button>
+                    <a href="/coupon/new" class="btn btn--green">
+                        <iconify-icon icon="tabler:circle-plus"></iconify-icon>
+                        <span>Nuevo cupón</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <section class="wrapper">
+        <div class="wrapper__body">
+            <table id="panel-table" class="table">
+                <thead class="table__head">
+                    <tr class="table__row-head">
+                        <th class="table__cell"><input class="checkbox" type="checkbox" name="" id="checkbox-all"></th>
+                        <th class="table__cell">Código</th>
+                        <th class="table__cell">Título</th>
+                        <th class="table__cell">Usos</th>
+                        <th class="table__cell">Descuento</th>
+                        <th class="table__cell">Estado</th>
+                        <th class="table__cell"></th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <% data.coupons.forEach((coupon)=> { %>
+                        <tr class="table__row">
+                            <td class="table__cell">
+                                <input class="checkbox action-checkbox" type="checkbox" name="<%= coupon.coupon_id %>">
+                            </td>
+                            <td class="table__cell">
+                                <a href="/coupon/<%= coupon.coupon_id %>" class="link link--table">
+                                    <%= coupon.coupon_code %>
+                                </a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="/coupon/<%= coupon.coupon_id %>" class="link link--table">
+                                    <%= coupon.coupon_title %>
+                                </a>
+                            </td>
+                            <td class="table__cell">
+                                <%= coupon.coupon_usage %>
+                            </td>
+                            <td class="table__cell">
+                                <%= coupon.coupon_discount %> %
+                            </td>
+                            <td class="table__cell">
+                                <% if (coupon.coupon_status==true) { %>
+                                    <span class="badge badge--green">activo</span>
+                                    <% } else { %>
+                                        <span class="badge badge--red">inactivo</span>
+                                        <% } %>
+                            </td>
+                            <td class="table__cell">
+                                <a href="/coupon/<%= coupon.coupon_id %>/edit" class="btn-table"><iconify-icon icon="tabler:edit"></iconify-icon></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>
